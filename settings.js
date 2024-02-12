@@ -2,30 +2,30 @@ const chalk = require("chalk")
 const fs = require("fs")
 
 //aumto presence update
-global.AntiCallBot = true // false a i dah chuan, rawn call-tu che automatic a block a ni lovang
+global.AntiCallBot = false // false a i dah chuan, rawn call-tu che automatic a block a ni lovang
 global.GroupWcMsg = true // false a i dah chuan welcome message i off ang
 global.autoTyping = false // true a i dah chuan i type la a lang ang
 global.autoRecord = false // true a i dah chuan Voice record angin i lang ang
-global.available = true // false a i dah chuan offline angin a awm ang
+global.available = false // false a i dah chuan offline angin a awm ang
 global.autoread = false // true a i dah chuan message zawng zawng read vek zelin a awm ang 
 global.autoread_status = false // true a i dah chuan auto status view in a awm ang
 
 //info
-global.owner = ['918416093656'] // I phone number in thlak rawh
-global.ownernumber = '918416093656' // I phone number in thlak rawh
-global.ownername = "꧁Herbert♕꧂" // I hming dah tel bawk la
+global.owner = ['917085345102'] // I phone number in thlak rawh
+global.ownernumber = '917085345102' // I phone number in thlak rawh
+global.ownername = "🇪 🇷 🇪 🇳 " // I hming dah tel bawk la
 global.location = "India, Mizoram, Aizawl" // I awmna hmun daha
-global.botname = "HBWABot Mizo" // I bot hming tur dah la
+global.botname = "🇪 🇷 🇪 🇳 " // I bot hming tur dah la
 global.ownerweb = "https://youtube.com/@HBMods_Channel"
-global.themeemoji = '🤖'
-global.creator = "918416093656@s.whatsapp.net" // @ symbol hmaa number hi i phone number in thlak rawh
+global.themeemoji = '☠️'
+global.creator = "917085345102@s.whatsapp.net" // @ symbol hmaa number hi i phone number in thlak rawh
 
-global.ownerNumber = ["918416093656@s.whatsapp.net"]// @ symbol hmaa number hi i phone number in thlak rawh
+global.ownerNumber = ["917085345102@s.whatsapp.net"]// @ symbol hmaa number hi i phone number in thlak rawh
 global.prefa = ['','!','.','#','/']
 global.sessionName = 'session'
 
 // Sticker Pack Name
-global.packname = "Sticker By"
+global.packname = "Sticker By"🇪 🇷 🇪 🇳 
 global.author = "HBWABot"
 global.hbmods = "https://herbert70.blogspot.com/"
 //_______________________________________________
