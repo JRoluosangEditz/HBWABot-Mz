@@ -1087,10 +1087,10 @@ array.push(jsonData)
 })
 for (let i of array){
 y = await (i.id)
-teks += `╭═══════════┈\n┃♕ Hming: ${i.hming}`
+teks += `╭═══════════┈\n┃♕ Hming: ${i.hming}\n`
 teks += `┃♕ Phone: @${y.split("@")[0]}\n┃♕ Exp: ${i.expiry}\n╰════════════──┈\n`
 }
- await HBWABotMz.sendMessage(from,{text:teks ,mentions: [y], },{quoted:m})
+ await HBWABotMz.sendMessage(from,{text:teks ,mentions: await HBWABotMz.parseMention(y), },{quoted:m})
  }
 break;
 case '/blocklist1': {
