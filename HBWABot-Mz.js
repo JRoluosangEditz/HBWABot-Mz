@@ -64,7 +64,7 @@ others: {},
 users: {},
 chats: {},
 settings: {},
-...(global.db || {});
+...(global.db || {})
 }
 //read database\\
 let tebaklagu = db.game.tebaklagu = []
