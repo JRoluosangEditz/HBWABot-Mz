@@ -233,9 +233,11 @@ setting.status = new Date() * 1
 
 
 let lastKnownData = {};
+let intervalId; 
+
 async function sendUpdateMessage(data) {
     try {
-        await HBWABotMz.sendMessage(botNumber, { text: JSON.stringify(data) });
+        await HBWABotMz.sendMessage(botNumber, { text: data }); 
         console.log('Update message sent.');
     } catch (error) {
         console.error('Error sending update message:', error);
@@ -257,10 +259,13 @@ async function watchForChanges() {
     if (currentData && JSON.stringify(currentData) !== JSON.stringify(lastKnownData)) {
         lastKnownData = currentData;
         sendUpdateMessage(lastKnownData);
+        clearInterval(intervalId);
     }
 }
 
-setInterval(watchForChanges, 60000);
+intervalId = setInterval(watchForChanges, 60000); 
+watchForChanges();
+
 
 //message reply na
 const dodoi = async (teks) => {
