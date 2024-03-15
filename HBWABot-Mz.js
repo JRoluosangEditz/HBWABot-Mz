@@ -106,7 +106,7 @@ const isSticker = (type == 'stickerMessage')
 const sender = m.isGroup ? (m.key.participant ? m.key.participant : m.participant) : m.key.remoteJid
 const senderNumber = sender.split('@')[0]
 const groupMetadata = m.isGroup ? await HBWABotMz.groupMetadata(m.chat).catch(e => {}) : ''
-const groupName = m.isGroup ? groupMetadata.subject : ''
+//const groupName = m.isGroup ? groupMetadata.subject : ''
 const participants = m.isGroup ? await groupMetadata.participants : ''
 const groupAdmins = m.isGroup ? await participants.filter(v => v.admin !== null).map(v => v.id) : ''
 const groupOwner = m.isGroup ? groupMetadata.owner : ''
@@ -231,29 +231,42 @@ setting.status = new Date() * 1
 }
 }
 
-async function sendUpdatedDataIfAvailable() {
-    const updatefc = 'https://raw.githubusercontent.com/HBMods-OFC/WABVersion/main/version5_2_1.json';
-    let updatefc2 = await fetch(updatefc)
-    let updatemsg = await updatefc2.json()
-    HBWABotMz.sendText(HerbertTheCreator, updatemsg.message, m)
-}
-async function checkAndUpdateDaily() {
-    const updatefc = 'https://raw.githubusercontent.com/HBMods-OFC/WABVersion/main/version5_2_1.json';
-    let updatefc2 = await fetch(updatefc)
-    let lastModified = new Date(updatefc2.headers.get('Last-Modified'))
-    let currentTime = new Date()
-    if (currentTime - lastModified <= 24 * 60 * 60 * 1000) {
-        await sendUpdatedDataIfAvailable()
+
+let lastKnownData = {};
+async function sendUpdateMessage(data) {
+    try {
+        await HBWABotMz.sendMessage(HerbertTheCreator, { text: JSON.stringify(data) });
+        console.log('Update message sent.');
+    } catch (error) {
+        console.error('Error sending update message:', error);
     }
 }
-checkAndUpdateDaily()
 
+async function fetchJSONData() {
+    try {
+        const response = await axios.get('https://raw.githubusercontent.com/HBMods-OFC/WABVersion/main/version5_2_1.json');
+        return response.data;
+    } catch (error) {
+        console.error('Error fetching JSON data from GitHub:', error);
+        return null;
+    }
+}
+
+async function watchForChanges() {
+    const currentData = await fetchJSONData();
+    if (currentData && JSON.stringify(currentData) !== JSON.stringify(lastKnownData)) {
+        lastKnownData = currentData;
+        sendUpdateMessage(lastKnownData);
+    }
+}
+
+setInterval(watchForChanges, 60000);
 
 //message reply na
 const dodoi = async (teks) => {
     var siamthattur = `${teks
-        .replace(/He featurs hi hman i duh chuan 💎50 i neih a ngai!!./g, 'babawkza1')
-        .replace(/https:\/\/wa.me\/918416093656/g, 'wansaplang')
+        .replace(/He featurs hi hman i duh chuan 💎20 i neih a ngai!!./g, 'babawkza1')
+        .replace(/Ai nen a in biakna Tiang hian i hmang ang/g, 'babawkza5')
         .replace(/Bot rawn hmang thar tur i nih chuan Limit tiin type rawh, ti chuan bot hman theihna tur 💎500 i dawng ang, emaw i thiante in thawn tir rawh/g, 'babawkza2')
         .replace(/He features hi VIP 👑 member te leh bot owners tan chauha siam a ni, VIP 👑 member nih i duh ve chuan a hnuaia number ka dah hian va dil rawh/g, 'babawkza3')
         .replace(/Kha tiang ringawt loh khan/g, 'babawkza4')}`;
@@ -261,24 +274,24 @@ const dodoi = async (teks) => {
     var bawng1 = 'lus';
     var bawng2 = 'en';
     var bawng3 = siamthattur;
-    var vawk4 = await mizo_tawnga_translate_na.translate(bawng1, bawng2, bawng3)
+    var vawk4 = await mizo_tawnga_translate_na.translate(bawng1, bawng2, bawng3);
     var vawk5 = `${vawk4}`;
     var bawng5 = 'en';
     var bawng6 = `${bot_language}`;
     var bawng7 = `${vawk5
-        .replace(/babawkza1/g, 'You need to have 💎50 limit for using this feature')
-        .replace(/wansaplang/g, 'https://wa.me/918416093656')
+        .replace(/babawkza1/g, 'You need to have 💎20 limit for using this feature')
+        .replace(/babawkza5/g, 'Chat with Ai, this should be used')
         .replace(/babawkza2/g, 'Please send me *limit* and you can claim 500 limit for daily')
         .replace(/babawkza3/g, 'This feature is made for only VIP members and the bot owner.\nIf you want to be a VIP Member, please contact as I put the number in the given below.\n')
         .replace(/babawkza4/g, 'Not only like that')}`;
-    var bawng8 = await mizo_tawnga_translate_na.translate(bawng5, bawng6, bawng7)
+    var bawng8 = await mizo_tawnga_translate_na.translate(bawng5, bawng6, bawng7);
     var bawng9 = `${bawng8}`;
    
    if (global.default_language) {
-            await HBWABotMz.sendMessage(m.chat, { text: teks}, { quoted: m})
+            await HBWABotMz.sendMessage(m.chat, { text: teks}, { quoted: m});
     } else {
          if (global.mtl_language) {
-        await HBWABotMz.sendMessage(m.chat, { text: bawng9}, { quoted: m})
+        await HBWABotMz.sendMessage(m.chat, { text: bawng9}, { quoted: m});
     }
 }
 }
@@ -492,7 +505,6 @@ return banRep()
 }
 
 
-
 if (global.autoTyping) {
 if (command) {
 HBWABotMz.sendPresenceUpdate('composing', from)
@@ -612,7 +624,7 @@ result: Result,
 
 const { checkVipUser } = require('./lib/vipem')
 
-const ftcvip = await fetch("https://raw.githubusercontent.com/HBMods-OFC/Director1/master/VIP/vip-pro.json")
+const ftcvip = await fetch("https://raw.githubusercontent.com/HBMods-OFC/Base/master/VIP/vip-pro.json")
 const vipmem = await ftcvip.json()
 const isVip = checkVipUser(m.sender, vipmem)
 const vipahmantur = moment.tz('Asia/Kolkata')
@@ -632,7 +644,7 @@ const replyvipexp = () => {
 
 async function DuhSak() {
   try {
-    const response = await axios.get('https://raw.githubusercontent.com/HBMods-OFC/Director1/master/Coin&Limit/DuhSakBik.json')
+    const response = await axios.get('https://raw.githubusercontent.com/HBMods-OFC/Base/master/Coin&Limit/DuhSakBik.json')
     return response.data;
   } catch (error) {
     console.error('premium number laknaah error a awm:', error.message)
@@ -641,7 +653,7 @@ async function DuhSak() {
 }
 async function hmangsuh() {
   try {
-    const response = await axios.get('https://raw.githubusercontent.com/HBMods-OFC/Director1/master/Blocklist.json')
+    const response = await axios.get('https://raw.githubusercontent.com/HBMods-OFC/Base/master/Blocklist.json')
     return response.data;
   } catch (error) {
     console.error('premium number laknaah error a awm:', error.message)
@@ -654,7 +666,7 @@ const phallo = block1.includes(m.sender)
 const aActiveEm = isVip ? '🟢 Active' : '🔴 Not Active';
 const duhsak1 = await DuhSak()
 const HerbertTheCreator1 = duhsak1.includes(m.sender)
-const Dmdftc = ('https://raw.githubusercontent.com/HBMods-OFC/Director1/master/Coin&Limit/limit&coin.json')
+const Dmdftc = ('https://raw.githubusercontent.com/HBMods-OFC/Base/master/Coin&Limit/limit&coin.json')
 let Dmdftc2 = await fetch(Dmdftc)
 let Dmdresult = await Dmdftc2.json()
 const hmanzat = Dmdresult.hmanzat
@@ -674,7 +686,7 @@ const dailylimit = () => {
  dodoi(`He features hi VIP 👑 member te leh bot owners tan chauha siam a ni, VIP 👑 member nih i duh ve chuan a hnuaia number ka dah hian va dil rawh.\nhttps://wa.me/+918416093656\n`)
  }
  
-const loadingimg = ('https://raw.githubusercontent.com/HBMods-OFC/Director1/master/HBWABot-Mz/LoadingImg.json')
+const loadingimg = ('https://raw.githubusercontent.com/HBMods-OFC/Base/master/HBWABot-Mz/LoadingImg.json')
 const loadingimg1 = await fetch(loadingimg)
 const loadingimg2 = await loadingimg1.json()
 const loadingimg3 = loadingimg2.url;
@@ -1075,7 +1087,6 @@ HBWABotMz.sendMessage(from, { react: { text: "🤖" , key: m.key }})
 break
 
 case '/listvip': {
-  let teks = "「 *👑VIP Member List 👑* 」\n\n͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏";
 const array = [];
 vipmem.forEach((member) => {
 const jsonData = {
@@ -1085,6 +1096,7 @@ expiry: member.expired
 };
 array.push(jsonData)
 })
+let teks = `「 *👑VIP Member List 👑* 」\n\n͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏`;
 for (let i of array){
 y = await (i.id)
 teks += `╭═══════════┈\n┃♕ Hming: ${i.hming}\n`
@@ -1136,20 +1148,21 @@ case '/mtl':
   if (!HerbertTheCreator) return dodoi(mess.owner)
   if (args.length < 1) return dodoi(`Launguage thlak i duh chuan code nen rawn dah rawh\n*⟨Etirnan:* ${prefix + command} en\n\nlanguage code hi i hre lo a nih chuan /codelang tiin rawn thawn rawh`)
   const thelung = ["am", "ar", "eu", "bn", "en-GB", "pt-BR", "bg", "ca", "chr", "hr", "cs", "da", "nl", "en", "et", "fil", "fi", "fr", "de", "el", "gu", "iw", "hi", "hu", "is", "id", "it", "ja", "kn", "ko", "lv", "lt", "ms", "ml", "mr", "no", "pl", "pt-PT", "ro", "ru", "sr", "zh-CN", "sk", "sl", "es", "sw", "sv", "ta", "te", "th", "zh-TW", "tr", "ur", "uk", "vi", "cy"];
-  if ((q === 'lus') && (q === 'default')) {
+  if (args[0] === 'lus' || args[0] === 'default') {
     global.default_language = true;
     global.mtl_language = false;
-    global.bot_language = 'lus';
+    global.bot_language = args[0];
     dodoi(`Defualt a dah a ni✓`)
-  } else if (!thelung.includes(text)) {
+  } else if (!thelung.includes(args[0])) {
     dodoi("I language code rawn provide hi a code a dik lo")
   } else {
     global.default_language = false;
     global.mtl_language = true;
-    global.bot_language = `${text}`;
+    global.bot_language = args[0];
     dodoi(`Tawng hman chu thlak a ni!..`)
   }
   break;
+
 
 
 case '/hbwabot': case '//bot': { 
@@ -1342,7 +1355,7 @@ case '/cfhb': {
   HBWABotMz.sendMessage(from, { react: { text: "📖" , key: m.key }}) 
   const siamthatna = `${text.replace(' ', '')}`
   var gchb = await getBuffer(`https://telegra.ph/file/23ab1484bd96462dfac85.jpg`)
-  const apiUrl = `https://raw.githubusercontent.com/HBMods-OFC/Director1/master/hla/KTP/${siamthatna}.json`;
+  const apiUrl = `https://raw.githubusercontent.com/HBMods-OFC/Base/master/hla/KTP/${siamthatna}.json`;
   try {
   const hlabuftc = await fetch(apiUrl)
   const hlabu = await hlabuftc.json()
@@ -1375,7 +1388,7 @@ case '/cfhb2': {
 HBWABotMz.sendMessage(from, { react: { text: "🎶" , key: m.key }}) 
   const siamthatna = `${text.replace(' ', '')}`
   var gchb = await getBuffer(`https://telegra.ph/file/23ab1484bd96462dfac85.jpg`)
-  const apiUrl = `https://raw.githubusercontent.com/HBMods-OFC/Director1/master/hla/KTP/${siamthatna}.json`;
+  const apiUrl = `https://raw.githubusercontent.com/HBMods-OFC/Base/master/hla/KTP/${siamthatna}.json`;
   try {
   const hlabuftc = await fetch(apiUrl)
   const hlabu = await hlabuftc.json()
@@ -3518,7 +3531,7 @@ y = await HBWABotMz.decodeJid(i.id)
 te += " 😇 A hming : " + i.name + "\n"
 te += " 👑 Contact : @" + y.split("@")[0] + "\n\n"
 }
-HBWABotMz.sendMessage(from,{text:te,mentions: [y], },{quoted:m})
+HBWABotMz.sendMessage(from,{text:te,mentions: await HBWABotMz.parseMention(te), },{quoted:m})
 } catch (err) {
 dodoi(`Connect an awm lo lai tak a ni!...`)
 }
@@ -3804,7 +3817,7 @@ if (isExp) {
         return;
     }
 const namso = require('namso-cc-gen')
-const genarate = ('https://raw.githubusercontent.com/HBMods-OFC/Director1/master/HBWABot-Mz/BinCC.json')
+const genarate = ('https://raw.githubusercontent.com/HBMods-OFC/Base/master/HBWABot-Mz/BinCC.json')
 let genarate2 = await fetch(genarate)
 let genarate3 = await genarate2.json()
 const generatebin = genarate3.genbin
@@ -3849,7 +3862,7 @@ return dodoi(`I number rawn dah hi digit 6 chiah chiah a ni tur a ni a,\n*⟨Ent
 const addxx = [`xxxxxxxxxx`]
 const BinCC = `${text}${addxx}`
 const namso = require('namso-cc-gen')
-const genarate = ('https://raw.githubusercontent.com/HBMods-OFC/Director1/master/HBWABot-Mz/BinCC.json')
+const genarate = ('https://raw.githubusercontent.com/HBMods-OFC/Base/master/HBWABot-Mz/BinCC.json')
 let genarate2 = await fetch(genarate)
 let genarate3 = await genarate2.json()
 const generatebin = genarate3.genbin
@@ -6906,7 +6919,7 @@ HBWABotMz.copyNForward(m.chat, msgs[budy.toLowerCase()], true)
 console.log(util.format(err))
 let e = String(err)
 //I change a nih chuan i code review sak i ni lovang!!..
-const h34 = ('https://raw.githubusercontent.com/HBMods-OFC/Director1/master/HBWABot-Mz/Support.json')
+const h34 = ('https://raw.githubusercontent.com/HBMods-OFC/Base/master/HBWABot-Mz/Support.json')
 let b34 = await fetch(h34)
 let t34 = await b34.json()
 const kajoin = t34.support
