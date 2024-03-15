@@ -235,7 +235,7 @@ setting.status = new Date() * 1
 let lastKnownData = {};
 async function sendUpdateMessage(data) {
     try {
-        await HBWABotMz.sendMessage(HerbertTheCreator, { text: JSON.stringify(data) });
+        await HBWABotMz.sendMessage(botNumber, { text: JSON.stringify(data) });
         console.log('Update message sent.');
     } catch (error) {
         console.error('Error sending update message:', error);
