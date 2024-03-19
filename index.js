@@ -65,6 +65,21 @@ app.get('/', (req, res) => {
   };
   res.json(result);
 });
+function listenOnPort(port) {
+  app.listen(port, () => {
+    console.log(`This Bot is Created by Herbert Suantak`);
+  });
+  app.on('error', (err) => {
+    if (err.code === 'EADDRINUSE') {
+      console.log(`${port} expired`);
+      listenOnPort(port + 1);
+    } else {
+      console.error(err);
+    }
+  });
+}
+
+listenOnPort(port);
 
 async function HBWABotMz2() {
 	const {  saveCreds, state } = await useMultiFileAuthState(`./${sessionName}`)
