@@ -67,11 +67,11 @@ settings: {},
 ...(global.db || {})
 }
 //read database\\
-let tebaklagu = db.game.tebaklagu = []
+let _hmanzat = db.game.hmanzat = []
 let _mizoquiz = db.game.mizoquiz = []
 let _gkmizo = db.game.gkmizo = []
 let thlalakquiz = db.game.thlalakquiz = []
-let tebakkata = db.game.tebakkata = []
+let _biblequiz = db.game.biblequiz = []
 let caklontong = db.game.lontong = []
 let caklontong_desk = db.game.lontong_desk = []
 let tebakkalimat = db.game.kalimat = []
@@ -673,7 +673,6 @@ async function hmangsuh() {
 }
 const block1 = await hmangsuh()
 const phallo = block1.includes(m.sender)
-
 const aActiveEm = isVip ? '🟢 Active' : '🔴 Not Active';
 const duhsak1 = await DuhSak()
 const HerbertTheCreator1 = duhsak1.includes(m.sender)
@@ -686,8 +685,8 @@ const dawnzat2 = Dmdresult.dawnzat2
 const dawnzat3 = Dmdresult.lulian
 const limitneihtu = m.sender
 const khawlbawm = "diamond";
-if (isCmd && phallo) {
-return
+if (isCmd && (block1.includes(m.sender) || block1.includes(m.from))) {
+    return 
 }
 const dailylimit = () => {
  dodoi(`He featurs hi hman i duh chuan 💎50 i neih a ngai!!.\n͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏
@@ -773,7 +772,40 @@ if (thlalakquiz.hasOwnProperty(m.sender.split('@')[0]) && isCmd) {
     }
 }
 
+if (_biblequiz.hasOwnProperty(m.sender.split('@')[0]) && isCmd) {
+    kuis = true;
+    achhanna = _biblequiz[m.sender.split('@')[0]];
+    if (budy.toLowerCase() == achhanna) {
+        await HBWABotMz.sendMessage(m.chat, { text: `*I chhan dik avangin limit 50💎 i dawng a ni!*🥳` }, { quoted: m });
+        await eco.give(limitneihtu, khawlbawm, 50);
+        delete _biblequiz[m.sender.split('@')[0]];
+    } else {
+        await dodoi('*I chhan dik loh avangin i limit 40💎 cut a ni*\nBible Chhiar tam rawh🫠');
+        await eco.deduct(limitneihtu, khawlbawm, 40);
+        delete _biblequiz[m.sender.split('@')[0]];
+    }
+}
+let bibleUsageCount = 0;
+
 switch (command) {
+case '/biblequiz':
+    case '/mbq': {
+    if (bibleUsageCount < 15) {
+        if (_biblequiz.hasOwnProperty(m.sender.split('@')[0])) {
+            return dodoi(`Zawhna ila chhang zo lo 🤌`);
+        }
+        let bbquiz = await fetchJson('https://raw.githubusercontent.com/HBMods-OFC/Base/master/quiz/biblequiz.json');
+        let result = bbquiz[Math.floor(Math.random() * bbquiz.length)];
+        let mult = "`Multiple Choice Questions`";
+        let englolo = await HBWABotMz.sendMessage(m.chat, { text: `> ${mult}\n${result.zawhna}\nAns: ___________`, contextInfo:{"externalAdReply": {"showAdAttribution": true, "containsAutoReply": true, "title": `Mizo Bible Quiz`,"body": `Limit hlawh theihna`, "previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": fs.readFileSync(`./asset/image/MizoBibleQ.png`),"sourceUrl": ``}}}, { quoted: m });
+       _biblequiz[m.sender.split('@')[0]] = result.achhanna.toLowerCase()
+       bibleUsageCount++;
+        } else {
+    return dodoi('Bot restart a nih hunah he features hi i hmang chhunzawm leh thei chauh ang')
+  }
+  }
+        break;
+
 case '/mizoquiz': {
     const userKey = m.sender.split('@')[0];
 
@@ -1107,7 +1139,7 @@ expiry: member.expired
 };
 array.push(jsonData)
 })
-let teks = `「 *👑VIP Member List 👑* 」\n\n͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏`;
+let teks = `「 *👑VIP Member List 👑* 」\n\n`;
 for (let i of array){
 y = await (i.id)
 teks += `╭═══════════┈\n┃♕ Hming: ${i.hming}\n`
@@ -1927,24 +1959,24 @@ case '/alive': case '/menu': case '/help':{
 const balance = await eco.balance(limitneihtu, khawlbawm)
 const vawiinni2 = await mizo_tawnga_translate_na.translate(asource1, atarget1, athulo1)
 var menuthla = await getBuffer(`${loadingimg3}`)
-HBWABotMz.sendMessage(from, { 
+const lusm = `*_Hriattur_*:\n*Limit i neih loh chuan min hmang thei dawn lo. Min hman i duh chuan limit tih rawn type rawh*`
+const enm = `_*Note*_\n*If you don't have any limit, you cannot use my features if you want to use my features please type limit*`
+    var bawng5 = 'en';
+    var bawng6 = `${bot_language}`;
+    var bawng7 = `${enm}`
+    var bawng8 = await mizo_tawnga_translate_na.translate(bawng5, bawng6, bawng7);
+     if (global.default_language) {
+            HBWABotMz.sendMessage(from, { 
 text: `*Bot InFo*
 *✑ Vawiin :* ${vawiinni2}
 *✑ Date :* ${kumtin}
-*✑ Version :* 5.5.0
+*✑ Version :* 5.6.0
 *✑ User :* ${ownernumber}
 *✑ Limit :* ${balance.wallet} 💎
 *✑ Vip :* ${aActiveEm}
 *✑ Runtime :* ${runtime(process.uptime())}
 *✑ Creator :* Herbert Suantak
-╭═══════════┈
-┃ *Limit i neih loh chuan*
-┃ *min hmang thei dawn lo,*
-╠═══════════┈
-┃ *Min hman i duh chuan*
-┃ *limit tih rawn type rawh*
-╰════════════──┈
-͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏
+${lusm}͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏
 ╭═══════════┈
 ┃𒆜┌───┈
 ┃𒆜│vipmenu
@@ -1955,7 +1987,6 @@ text: `*Bot InFo*
 ┃𒆜│groupmenu
 ┃𒆜│ownermenu
 ┃𒆜│photooxymenu
-┃𒆜│textpromenu
 ┃𒆜│ephoto360menu
 ┃𒆜│stickermenu
 ┃𒆜│stalkermenu
@@ -1976,6 +2007,51 @@ sourceUrl: ``
 }
 }
 },{quoted:m})
+    } else {
+         if (global.mtl_language) {
+        HBWABotMz.sendMessage(from, { 
+text: `*Bot InFo*
+*✑ Vawiin :* ${vawiinni2}
+*✑ Date :* ${kumtin}
+*✑ Version :* 5.6.0
+*✑ User :* ${ownernumber}
+*✑ Limit :* ${balance.wallet} 💎
+*✑ Vip :* ${aActiveEm}
+*✑ Runtime :* ${runtime(process.uptime())}
+*✑ Creator :* Herbert Suantak
+${bawng8}͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏
+╭═══════════┈
+┃𒆜┌───┈
+┃𒆜│vipmenu
+┃𒆜│allmenu
+┃𒆜│aimenu
+┃𒆜│mizomenu
+┃𒆜│downloadmenu
+┃𒆜│groupmenu
+┃𒆜│ownermenu
+┃𒆜│photooxymenu
+┃𒆜│ephoto360menu
+┃𒆜│stickermenu
+┃𒆜│stalkermenu
+┃𒆜│unbanmenu
+┃𒆜│othermenu
+┃𒆜└───────────┈ 
+╰════════════──┈ `,
+contextInfo:{
+externalAdReply:{ 
+showAdAttribution: true,
+containsAutoReply: true,
+renderLargerThumbnail: true,
+title: `${global.botname}`,
+thumbnail : menuthla,
+mediaType: 1,
+mediaUrl: ``,
+sourceUrl: ``
+}
+}
+},{quoted:m})
+    }
+}
 }
 break
 case '/allmenu': {
@@ -1987,8 +2063,7 @@ var HBLoadingmenu = [
 `《████████▒▒▒▒▒▒▒》50%`,
 `《███████████▒▒▒▒》80%`,
 `《███████████████》100%`,
-`
-╭══════════════
+`╭══════════════
 ┃ *${global.botname} Allmenu*
 ┃ *✑ limit :* ${balance.wallet} 💎
 ┃ *♕  VIP :* ${aActiveEm}
@@ -2052,87 +2127,6 @@ var HBLoadingmenu = [
 ┃𒆜│unbanv3
 ┃𒆜│unbanv4
 ┃𒆜│unbanv5
-┃𒆜└───────────┈ 
-╰══════════════𖡛
-
-*╭═══❏ Textpro Maker ❏*
-┃𒆜┌───┈
-┃𒆜│candy
-┃𒆜│christmas
-┃𒆜│3dchristmas
-┃𒆜│sparklechristmas 
-┃𒆜│deepsea
-┃𒆜│scifi
-┃𒆜│rainbow
-┃𒆜│waterpipe
-┃𒆜│spooky
-┃𒆜│pencil
-┃𒆜│circuit
-┃𒆜│discovery
-┃𒆜│metalic
-┃𒆜│fiction
-┃𒆜│demon
-┃𒆜│transformer
-┃𒆜│berry
-┃𒆜│thunder
-┃𒆜│magma
-┃𒆜│3dstone
-┃𒆜│neonlight
-┃𒆜│glitch
-┃𒆜│harrypotter
-┃𒆜│brokenglass
-┃𒆜│papercut
-┃𒆜│watercolor
-┃𒆜│multicolor
-┃𒆜│neondevil
-┃𒆜│underwater
-┃𒆜│graffitibike 
-┃𒆜│snow
-┃𒆜│cloud
-┃𒆜│honey
-┃𒆜│ice
-┃𒆜│fruitjuice
-┃𒆜│biscuit
-┃𒆜│wood
-┃𒆜│chocolate
-┃𒆜│strawberry
-┃𒆜│matrix
-┃𒆜│blood
-┃𒆜│dropwater
-┃𒆜│toxic
-┃𒆜│lava
-┃𒆜│rock
-┃𒆜│bloodglas
-┃𒆜│hallowen
-┃𒆜│darkgold
-┃𒆜│joker
-┃𒆜│wicker 
-┃𒆜│firework
-┃𒆜│skeleton
-┃𒆜│blackpink
-┃𒆜│sand
-┃𒆜│glue
-┃𒆜│1917
-┃𒆜│leaves 
-┃𒆜│retro 
-┃𒆜│pornhub 
-┃𒆜│8bit 
-┃𒆜│batman 
-┃𒆜│3dbox 
-┃𒆜│lion 
-┃𒆜│3davengers 
-┃𒆜│window 
-┃𒆜│3dspace 
-┃𒆜│bokeh 
-┃𒆜│holographic 
-┃𒆜│thewall 
-┃𒆜│carbon 
-┃𒆜│whitebear 
-┃𒆜│metallic 
-┃𒆜│steel 
-┃𒆜│fabric 
-┃𒆜│ancient 
-┃𒆜│marvel 
 ┃𒆜└───────────┈ 
 ╰══════════════𖡛
 
@@ -2283,6 +2277,8 @@ var HBLoadingmenu = [
 ┃𒆜│cfhb2 [Hla nen]
 ┃𒆜│mizoquiz
 ┃𒆜│picquiz
+┃𒆜│mbq
+┃𒆜│biblequiz
 ┃𒆜│spin1
 ┃𒆜│checkme
 ┃𒆜│list tobebot
@@ -2295,8 +2291,7 @@ var HBLoadingmenu = [
 ┃𒆜│withdraw
 ┃𒆜│deposite
 ┃𒆜│tts 
-┃𒆜│say 
-┃𒆜│togif 
+┃𒆜│say  
 ┃𒆜│toqr 
 ┃𒆜│bass 
 ┃𒆜│blown 
@@ -2314,7 +2309,6 @@ var HBLoadingmenu = [
 ┃𒆜│tovn 
 ┃𒆜│toaudio 
 ┃𒆜│tomp3 
-┃𒆜│tomp4
 ┃𒆜│toimg 
 ┃𒆜│sticker 
 ┃𒆜│ebinary 
@@ -2353,8 +2347,7 @@ var HBLoadingmenu = [
 `《████████▒▒▒▒▒▒▒》50%`,
 `《███████████▒▒▒▒》80%`,
 `《███████████████》100%`,
-`
-╭══════════════
+`╭══════════════
 ┃ *Download Menu*
 ┃ *✑ limit :* ${balance.wallet} 💎
 ┃ *♕  VIP :* ${aActiveEm}
@@ -2407,8 +2400,7 @@ var HBLoadingmenu = [
 `《████████▒▒▒▒▒▒▒》50%`,
 `《███████████▒▒▒▒》80%`,
 `《███████████████》100%`,
-`
-╭══════════════
+`╭══════════════
 ┃ *Group Menu*
 ┃ *✑ limit :* ${balance.wallet} 💎
 ┃ *♕  VIP :* ${aActiveEm}
@@ -2476,8 +2468,7 @@ var HBLoadingmenu = [
 `《████████▒▒▒▒▒▒▒》50%`,
 `《███████████▒▒▒▒》80%`,
 `《███████████████》100%`,
-`
-╭══════════════
+`╭══════════════
 ┃ *Stalk Menu*
 ┃ *✑ limit :* ${balance.wallet} 💎
 ┃ *♕  VIP :* ${aActiveEm}
@@ -2515,8 +2506,7 @@ var HBLoadingmenu = [
 `《████████▒▒▒▒▒▒▒》50%`,
 `《███████████▒▒▒▒》80%`,
 `《███████████████》100%`,
-`
-╭══════════════
+`╭══════════════
 ┃ *Unbanned Menu*
 ┃ *✑ limit :* ${balance.wallet} 💎
 ┃ *♕  VIP :* ${aActiveEm}
@@ -2557,8 +2547,7 @@ var HBLoadingmenu = [
 `《████████▒▒▒▒▒▒▒》50%`,
 `《███████████▒▒▒▒》80%`,
 `《███████████████》100%`,
-`
-╭══════════════
+`╭══════════════
 ┃ *Mizo Tawng*
 ┃ *✑ limit :* ${balance.wallet} 💎
 ┃ *♕  VIP :* ${aActiveEm}
@@ -2568,6 +2557,8 @@ var HBLoadingmenu = [
 ┃𒆜┌───┈
 ┃𒆜│mizoquiz
 ┃𒆜│picquiz
+┃𒆜│mbq
+┃𒆜│biblequiz
 ┃𒆜│mlyrics
 ┃𒆜│mzly
 ┃𒆜│cfhb
@@ -2631,8 +2622,7 @@ var HBLoadingmenu = [
 `《████████▒▒▒▒▒▒▒》50%`,
 `《███████████▒▒▒▒》80%`,
 `《███████████████》100%`,
-`
-╭══════════════
+`╭══════════════
 ┃ *Ai Menu*
 ┃ *✑ limit :* ${balance.wallet} 💎
 ┃ *♕  VIP :* ${aActiveEm}
@@ -2670,6 +2660,7 @@ await HBWABotMz.relayMessage(m.chat, {
  }
 }
 break
+/*
 case '/textpromenu': { 
 const balance = await eco.balance(limitneihtu, khawlbawm)
 var HBLoadingmenu = [
@@ -2679,8 +2670,7 @@ var HBLoadingmenu = [
 `《████████▒▒▒▒▒▒▒》50%`,
 `《███████████▒▒▒▒》80%`,
 `《███████████████》100%`,
-`
-╭══════════════
+`╭══════════════
 ┃ *Textpro Menu*
 ┃ *✑ limit :* ${balance.wallet} 💎
 ┃ *♕  VIP :* ${aActiveEm}
@@ -2783,6 +2773,7 @@ await HBWABotMz.relayMessage(m.chat, {
  }
 }
 break
+*/
 case '/ephoto360menu': { 
 const balance = await eco.balance(limitneihtu, khawlbawm)
 var HBLoadingmenu = [
@@ -2792,8 +2783,7 @@ var HBLoadingmenu = [
 `《████████▒▒▒▒▒▒▒》50%`,
 `《███████████▒▒▒▒》80%`,
 `《███████████████》100%`,
-`
-╭══════════════
+`╭══════════════
 ┃ *Ephoto360 Menu*
 ┃ *✑ limit :* ${balance.wallet} 💎
 ┃ *♕  VIP :* ${aActiveEm}
@@ -2859,8 +2849,7 @@ var HBLoadingmenu = [
 `《████████▒▒▒▒▒▒▒》50%`,
 `《███████████▒▒▒▒》80%`,
 `《███████████████》100%`,
-`
-╭══════════════
+`╭══════════════
 ┃ *Sticker Menu*
 ┃ *✑ limit :* ${balance.wallet} 💎
 ┃ *♕  VIP :* ${aActiveEm}
@@ -2903,8 +2892,7 @@ var HBLoadingmenu = [
 `《████████▒▒▒▒▒▒▒》50%`,
 `《███████████▒▒▒▒》80%`,
 `《███████████████》100%`,
-`
-╭══════════════
+`╭══════════════
 ┃ *PhotoOxy Maker*
 ┃ *✑ limit :* ${balance.wallet} 💎
 ┃ *♕  VIP :* ${aActiveEm}
@@ -2967,8 +2955,7 @@ var HBLoadingmenu = [
 `《████████▒▒▒▒▒▒▒》50%`,
 `《███████████▒▒▒▒》80%`,
 `《███████████████》100%`,
-`
-╭══════════════
+`╭══════════════
 ┃ *Other Menu*
 ┃ *✑ limit :* ${balance.wallet} 💎
 ┃ *♕  VIP :* ${aActiveEm}
@@ -2992,8 +2979,7 @@ var HBLoadingmenu = [
 ┃𒆜│withdraw
 ┃𒆜│deposite
 ┃𒆜│tts 
-┃𒆜│say 
-┃𒆜│togif 
+┃𒆜│say  
 ┃𒆜│toqr 
 ┃𒆜│bass 
 ┃𒆜│blown 
@@ -3011,7 +2997,6 @@ var HBLoadingmenu = [
 ┃𒆜│tovn 
 ┃𒆜│toaudio 
 ┃𒆜│tomp3 
-┃𒆜│tomp4
 ┃𒆜│toimg 
 ┃𒆜│sticker 
 ┃𒆜│ebinary 
@@ -3050,8 +3035,7 @@ var HBLoadingmenu = [
 `《████████▒▒▒▒▒▒▒》50%`,
 `《███████████▒▒▒▒》80%`,
 `《███████████████》100%`,
-`
-╭══════════════
+`╭══════════════
 ┃ *Owner Menu*
 ┃ *✑ limit :* ${balance.wallet}
 ┃ *♕ VIP :* ${aActiveEm}
@@ -3095,8 +3079,7 @@ var HBLoadingmenu = [
 `《████████▒▒▒▒▒▒▒》50%`,
 `《███████████▒▒▒▒》80%`,
 `《███████████████》100%`,
-`
-╭══════════════
+`╭══════════════
 ┃ *VIP Menu*
 ┃ *✑ limit :* ${balance.wallet}
 ┃ *♕ VIP :* ${aActiveEm}
@@ -3121,7 +3104,7 @@ var HBLoadingmenu = [
 ┃𒆜│unbanv4
 ┃𒆜│unbanv5
 ┃𒆜│removebg
-┃𒆜│tozombies
+┃𒆜│tozombie
 ┃𒆜│bincc
 ┃𒆜│swm
 ┃𒆜│hentaivid
@@ -3487,7 +3470,7 @@ let { key } = await HBWABotMz.sendMessage(from, {text: '《▒▒▒▒▒▒▒
 for (let i = 0; i < dbinaryloading.length; i++) {await HBWABotMz.sendMessage(from, {text: dbinaryloading[i], edit: key },{quoted:m})}
 }
 break
-case '/remini': {
+case '/remini': case '/remini2': case '/hd': {
 if (!isVip) return await replyvip()
     if (isExp) {
         replyvipexp()
@@ -3617,31 +3600,12 @@ if (!/image/.test(mime)) return dodoi(`Thlalak Send/Reply in a caption ah ${pref
 const limit1= await eco.balance(limitneihtu, khawlbawm)
 if (hmanzat > limit1.wallet) return await dailylimit()
 await loadingreact()
-const { removebg } = require('betabotz-tools')
-let downloadrawh = await quoted.download()
-let results = await removebg(downloadrawh)
-console.log(results) //json
-HBWABotMz.sendMessage(m.chat, { image: {url: results.image_data}, caption: `\n*©${global.botname}*`}, { quoted: m})
-let aman = await eco.deduct(limitneihtu, khawlbawm, hmanzat)
-await finishreact()
-}
-break
-case '/remini2': case '/hd': {
-    if (!isVip) return await replyvip()
-    if (isExp) {
-        replyvipexp()
-        return;
-    }
-if (!quoted) return dodoi(`Thlalak rawn dah rawh`)
-if (!/image/.test(mime)) return dodoi(`Thlalak Send/Reply in a caption ah ${prefix + command} tih hi rawn dah rawh`)
-const limit1= await eco.balance(limitneihtu, khawlbawm)
-if (hmanzat > limit1.wallet) return await dailylimit()
-await loadingreact()
-const { remini } = require('betabotz-tools')
-let downloadrawh = await quoted.download()
-let results = await remini(downloadrawh)
-console.log(results) //json
-HBWABotMz.sendMessage(m.chat, { image: {url: results.image_data}, caption: `\n*©${global.botname}*`}, { quoted: m})
+let { UploadFileUgu, webp2mp4File, TelegraPh } = require('./lib/uploader')
+let media = await HBWABotMz.downloadAndSaveMediaMessage(quoted)
+let anu = await TelegraPh(media)
+let removebg = await fetchJson(`https://aemt.me/removebg?url=${encodeURIComponent(anu)}`)
+let heingei = removebg.url
+HBWABotMz.sendMessage(m.chat, { image: {url: heingei.result}, caption: `\n*©${global.botname}*`}, { quoted: m})
 let aman = await eco.deduct(limitneihtu, khawlbawm, hmanzat)
 await finishreact()
 }
@@ -3659,134 +3623,145 @@ const limit1= await eco.balance(limitneihtu, khawlbawm)
 if (hmanzat > limit1.wallet) return await dailylimit()
 
 await loadingreact()
-const { tozombie } = require('betabotz-tools')
-let downloadrawh = await quoted.download()
-let results = await tozombie(downloadrawh)
-console.log(results) //json
-HBWABotMz.sendMessage(m.chat, { image: {url: results.image_data}, caption: `\n*©${global.botname}*`}, { quoted: m})
+let { UploadFileUgu, webp2mp4File, TelegraPh } = require('./lib/uploader')
+let media = await HBWABotMz.downloadAndSaveMediaMessage(quoted)
+let anu = await TelegraPh(media)
+let tozombie = await fetchJson(`https://aemt.me/converter/zombie?url=${encodeURIComponent(anu)}`)
+let heingei = tozombie.url
+HBWABotMz.sendMessage(m.chat, { image: {url: heingei}, caption: `\n*©${global.botname}*`}, { quoted: m})
 let aman = await eco.deduct(limitneihtu, khawlbawm, hmanzat)
 await finishreact()
 }
 break 
-case '/ai': {
-    if (!text) return dodoi(`_🤖Ai nen a in biakna Tiang hian i hmang ang_\n*⟨Entirnan:* ${prefix + command} ChatGpt hi eng nge a nih min hrilh fiah thei em?.`)
-    const limit1= await eco.balance(limitneihtu, khawlbawm)
-    if (hmanzat > limit1.wallet) return await dailylimit()
-    await robotreact() 
-    try {
-    const { openai } = require('betabotz-tools') 
-    const source1 = 'lus'
-    const target1 = 'en'
-    const thlakna = `${text
-        .replace(/BetaBotz|BetaBotz-Ai|Betabotz ai|BetaBotz Ai|BetaBotz ai/g, '')
-        .replace(/Lann/g, '')
-        .replace(/Erlan Rahmat|Erlanrahmat|Erlan rahmat|Erlan|erlan/g, '')
-        .replace(/ERLAN|RAHMAT/g, '')
-        .replace(/Lalngaihawma|lalngaihawma/g, 'Erlan Rahmat')
-        .replace(/HBMods/g, 'ERLANRAHMAT')
-        .replace(/HBMods OFC/g, 'ERLANRAHMAT')
-        .replace(/tunge siam che|tuin nge siam che|tu siam nge i nih/g, `who created you `)
-        .replace(/HBMods-OFC/g, 'ERLANRAHMAT')}`
-    const athu1 = `${thlakna 
-    .replace(/HBWABot|HBWABot-Ai|HBWABot-ai|Hbwabot|hbwabot|`${global.botname}`/g, 'BetaBotz-Ai')
-        .replace(/Herbert Suantak|Herbert-a|Herberta/g, 'Lann')
-        .replace(/https:\/\/github.com\/HBMods-OFC/g, 'https://github.com/ERLANRAHMAT')}`;
-    const mizotranslation1 = await mizo_tawnga_translate_na.translate(source1, target1, athu1)
-    const heihi_ani = `${mizotranslation1}`
-    const heihian = await openai(`${heihi_ani}`)
-    const chutin = `${heihian.result
-        .replace(/BetaBotz/g, `${global.botname}`)
-        .replace(/Lann/g, 'Herbert Suantak')
-        .replace(/Erlan Rahmat|Erlanrahmat|Erlan|erlan/g, 'Lalngaihawma')
-        .replace(/https:\/\/github.com\/ERLANRAHMAT/g, 'https://github.com/HBMods-OFC')}`;
-    const source = 'auto'
-    const target = chutin.includes('```') ? 'en' : 'lus';
-    const athu = `${chutin}`
-    const mizotranslation = await mizo_tawnga_translate_na.translate(source, target, athu)
-    const siamthat = `${mizotranslation
-    .replace(/ka siamtu|ka neitu/g, 'min siamtu')
-    .replace(/Ka neitu|Ka siamtu/g, 'Min siamtu')
-    .replace(/ERLANRAHMAT/g, 'HBMods')
-    .replace(/I tanpui turin ka|tanpui turin ka/g, 'tanpui tur chein ka')
-    .replace(/ka rawn kal a ni/g, 'ka awm e')
-    .replace(/Chibai! /g, `Hello ${pushname}, `)
-    .replace(/ka chhuah ang che/g, 'chhuahin ka pui ang che')
-    .replace(/Ka ngaidam che u|Ka ngaidam che|Ngaidam rawh|Ngaidam rawh u/g, 'Ka tihpalh')}`;
-    await dodoi(`${siamthat}`)
-        let aman = await eco.deduct(limitneihtu, khawlbawm, hmanzat)
-    } catch (error) {
-        console.error("Error occurred:", error)
-        await dodoi(`😔Chhanna ka pe thei lo che a ngaihdam ka dil e. Kei mahah hian thil fello a awm a ni, khawngaihin link ka rawn dah hi hmet la, min siamtu hnenah ka chian loh thu hi min va hrilh sak rawh.\nhttps://wa.me/+918416093656`)
-    }
-}
-break
-//betabotz ChatBot
-case '/ai2': case '/gpt': {
-    if (!text) return dodoi(`_🤖Ai nen a in biakna Tiang hian i hmang ang_\n*⟨Entirnan:* ${prefix + command} ChatGpt hi eng nge a nih min hrilh fiah thei em?.`)
-    const limit1= await eco.balance(limitneihtu, khawlbawm)
-    if (hmanzat > limit1.wallet) return await dailylimit()
-    await robotreact() 
-    try {
-    const { openai } = require('betabotz-tools') 
-    const source1 = `auto`
-    const target1 = 'en'
-    const thlakna = `${text
-        .replace(/BetaBotz|BetaBotz-Ai|Betabotz ai|BetaBotz Ai|BetaBotz ai/g, '')
-        .replace(/Lann/g, '')
-        .replace(/Erlan Rahmat|Erlanrahmat|Erlan rahmat|Erlan|erlan/g, '')
-        .replace(/ERLAN|RAHMAT/g, '')
-        .replace(/Lalngaihawma|lalngaihawma/g, 'Erlan Rahmat')
-        .replace(/HBMods/g, 'ERLANRAHMAT')
-        .replace(/HBMods OFC/g, 'ERLANRAHMAT')
-        .replace(/HBMods-OFC/g, 'ERLANRAHMAT')}`
-    const athu1 = `${thlakna 
-    .replace(/HBWABot|HBWABot-Ai|HBWABot-ai|Hbwabot|hbwabot|`${global.botname}`/g, 'BetaBotz-Ai')
-        .replace(/Herbert Suantak|Herbert-a|Herberta/g, 'Lann')
-        .replace(/https:\/\/github.com\/HBMods-OFC/g, 'https://github.com/ERLANRAHMAT')}`;
-    const mizotranslation1 = await mizo_tawnga_translate_na.translate(source1, target1, athu1)
-    const heihi_ani = `${mizotranslation1}`
-    const heihian = await openai(`${heihi_ani}`)
-    const chutin = `${heihian.result
-        .replace(/BetaBotz/g, `${global.botname}`)
-        .replace(/Lann/g, 'Herbert Suantak')
-        .replace(/Erlan Rahmat|Erlanrahmat|Erlan|erlan/g, 'Lalngaihawma')
-        .replace(/https:\/\/github.com\/ERLANRAHMAT/g, 'https://github.com/HBMods-OFC')}`;
-await HBWABotMz.sendMessage(from, { text: chutin }, { quoted: m })
-        let aman = await eco.deduct(limitneihtu, khawlbawm, hmanzat)
-    } catch (error) {
-        console.error("Error occurred:", error)
-        await dodoi(`😔Chhanna ka pe thei lo che a ngaihdam ka dil e. Kei mahah hian thil fello a awm a ni, khawngaihin link ka rawn dah hi hmet la, min siamtu hnenah ka chian loh thu hi min va hrilh sak rawh.\nhttps://wa.me/+918416093656`)
-    }
-}
-break
-case '/gai': {
- if (!text) return dodoi(`_🤖Ai nen a in biakna Tiang hian i hmang ang_\n*⟨Entirnan:* ${prefix + command} ChatGpt hi eng nge a nih min hrilh fiah thei em?.`)
-    const limit1= await eco.balance(limitneihtu, khawlbawm)
-    if (hmanzat > limit1.wallet) return await dailylimit()
-    await robotreact() 
-    const source1 = `lus`
-    const target1 = 'en'
-    const mizotranslation1 = await mizo_tawnga_translate_na.translate(source1, target1, text)
-    const heihi_ani = `${mizotranslation1}`
-    const chutin1 = await fetchJson(`https://api.vihangayt.asia/ai/gemini?q=${encodeURIComponent(heihi_ani)}`)
-    const chutin = chutin1.data
-    const source = 'en'
-    const target = chutin.includes('```') ? 'en' : 'lus';
-    const athu = `${chutin}`
-    const mizotranslation = await mizo_tawnga_translate_na.translate(source, target, athu)
-    const siamthat = `${mizotranslation
-    .replace(/ka siamtu|ka neitu/g, 'min siamtu')
-    .replace(/Ka neitu|Ka siamtu/g, 'Min siamtu')
-    .replace(/I tanpui turin ka|tanpui turin ka/g, 'tanpui tur chein ka')
-    .replace(/ka rawn kal a ni/g, 'ka awm e')
-    .replace(/Chibai! /g, `Hello ${pushname}, `)
-    .replace(/ka chhuah ang che/g, 'chhuahin ka pui ang che')
-    .replace(/Ka ngaidam che u|Ka ngaidam che|Ngaidam rawh|Ngaidam rawh u/g, 'Ka tihpalh')}`;
-    await dodoi(`${siamthat}`)
-    let aman = await eco.deduct(limitneihtu, khawlbawm, hmanzat)
-}
-break
+case '/ai':
+case '/openai': {
+    if (!text) return dodoi(`_🤖 Ai nen a in biakna Tiang hian i hmang ang_\n*⟨Entirnan:* ${prefix + command} ChatGpt hi eng nge a nih min hrilh fiah thei em?.`);
+    const limit1 = await eco.balance(limitneihtu, khawlbawm);
+    if (hmanzat > limit1.wallet) return await dailylimit();
+    await robotreact();
+    const source = 'lus';
+    const target = 'en';
+    const athu = `${text
+        .replace(/AILI|aili|Aili/g, '')
+        .replace(/Lann/g, '')}`;
+    const mizotranslation = await mizo_tawnga_translate_na.translate(source, target, athu);
+    const prompt = `[ “ Use emoticons in all your communication messages ”]
+[“I am ${global.botname} Ai created by Herbert Suantak”]
+[“HBWABot fullform Herbert WhatsApp Bot”] [“If you want to talk to my Creator, please follow him on Instagram, his Instagram id is https://instagram.com/Herbert_Suantak2 ”]
 
+I have various features, the most notable of which are :
+youtube video download command in mp3 and mp4 format is .ytmp3 and ytmp4 If you want to see the various video download commands I have, type .downloadmenu.
+
+I can easily convert a photo into a sticker, send me a photo with .s or .sticker in the caption and I can make it into a sticker for you.
+
+You can see all my features by typing .allmenu`;
+    const apiUrl1 = `https://aemt.me/prompt/gpt?prompt=${encodeURIComponent(prompt)}&text=${encodeURIComponent(mizotranslation)}`;
+    const response1 = await fetch(apiUrl1);
+    const responseData1 = await response1.json();
+    if (responseData1.status === true) {
+        const chutin = responseData1.result;
+        const source = 'auto';
+        const target = chutin.includes('```') ? 'en' : 'lus';
+        const athu = `${chutin}`;
+        const mizotranslation = await mizo_tawnga_translate_na.translate(source, target, athu);
+        const siamthat = `${mizotranslation
+            .replace(/ka siamtu|ka neitu/g, 'min siamtu')
+            .replace(/Ka neitu|Ka siamtu/g, 'Min siamtu')
+            .replace(/AILI|Aili/g, `${global.botname}`)
+            .replace(/I tanpui turin ka|tanpui turin ka/g, 'tanpui tur chein ka')
+            .replace(/ka rawn kal a ni/g, 'ka awm e')
+            .replace(/Chibai! |Chibai u/g, `Hello ${pushname}, `)
+            .replace(/ka chhuah ang che/g, 'chhuahin ka pui ang che')
+            .replace(/Ka ngaidam che u|Ka ngaidam che|Ngaidam rawh|Ngaidam rawh u/g, 'Ka tihpalh')}`;
+        await dodoi(`${siamthat}`);
+        let aman = await eco.deduct(limitneihtu, khawlbawm, hmanzat)
+    } else {
+        console.error(error2);
+        dodoi("😔 Chhanna ka pe thei lo che a ngaihdam ka dil e. kei mahah hian thil fello a awm a ni, khawngaihin link ka rawn dah hi hmet la, min siamtu hnenah ka chian loh thu hi min va hrilh sak rawh\nhttps://wa.me/+918416093656")
+    }
+    break;
+}
+
+case '/ai2':
+case '/gpt':{
+    if (!text) return dodoi(`_🤖 Ai nen a in biakna Tiang hian i hmang ang_\n*⟨Entirnan:* ${prefix + command} ChatGpt hi eng nge a nih min hrilh fiah thei em?.`);
+    const limit1 = await eco.balance(limitneihtu, khawlbawm);
+    if (hmanzat > limit1.wallet) return await dailylimit();
+    await robotreact();
+    const source = 'lus';
+    const target = 'en';
+    const athu = `${text
+        .replace(/AILI|aili|Aili/g, '')
+        .replace(/Lann/g, '')}`;
+    const mizotranslation = await mizo_tawnga_translate_na.translate(source, target, athu);
+   const prompt = `Translate lus | [ “ Use emoticons in all your communication messages ”]
+[“I am ${global.botname} Ai created by Herbert Suantak”]
+[“HBWABot fullform Herbert WhatsApp Bot”] [“If you want to talk to him, please follow him on Instagram, his Instagram id is https://instagram.com/Herbert_Suantak2 ”]
+
+I have various features, the most notable of which are :
+youtube video download command in mp3 and mp4 format is .ytmp3 and ytmp4 If you want to see the various video download commands I have, type .downloadmenu.
+
+I can easily convert a photo into a sticker, send me a photo with .s or .sticker in the caption and I can make it into a sticker for you.
+
+You can see all my features by typing .allmenu`;
+    const apiUrl1 = `https://aemt.me/prompt/gpt?prompt=${encodeURIComponent(prompt)}&text=${encodeURIComponent(mizotranslation)}`;
+    const response1 = await fetch(apiUrl1);
+    const responseData1 = await response1.json();
+    if (responseData1.status === true) {
+        const chutin = responseData1.result;
+        const source = 'auto';
+        const target = chutin.includes('```') ? 'en' : 'en';
+        const athu = `${chutin}`;
+        const mizotranslation = await mizo_tawnga_translate_na.translate(source, target, athu);
+        const siamthat = `${mizotranslation
+            .replace(/ka siamtu|ka neitu/g, 'min siamtu')
+            .replace(/Ka neitu|Ka siamtu/g, 'Min siamtu')
+            .replace(/AILI|Aili/g, `${global.botname}-Ai`)
+            .replace(/I tanpui turin ka|tanpui turin ka/g, 'tanpui tur chein ka')
+            .replace(/ka rawn kal a ni/g, 'ka awm e')
+            .replace(/Chibai! |Chibai u/g, `Hello ${pushname}, `)
+            .replace(/ka chhuah ang che/g, 'chhuahin ka pui ang che')
+            .replace(/Ka ngaidam che u|Ka ngaidam che|Ngaidam rawh|Ngaidam rawh u/g, 'Ka tihpalh')}`;
+        await dodoi(`${siamthat}`);
+        let aman = await eco.deduct(limitneihtu, khawlbawm, hmanzat)
+    } else {
+        console.error(error2);
+        dodoi("😔 Chhanna ka pe thei lo che a ngaihdam ka dil e. kei mahah hian thil fello a awm a ni, khawngaihin link ka rawn dah hi hmet la, min siamtu hnenah ka chian loh thu hi min va hrilh sak rawh\nhttps://wa.me/+918416093656")
+    }
+    break;
+}
+
+
+
+case '/gai': {
+    if (!text) return dodoi(`_🤖Ai nen a in biakna Tiang hian i hmang ang_\n*⟨Entirnan:* ${prefix + command} ChatGpt hi eng nge a nih min hrilh fiah thei em?.`);
+    const limit1 = await eco.balance(limitneihtu, khawlbawm);
+    if (hmanzat > limit1.wallet) return await dailylimit();
+    await robotreact();
+    const source1 = `lus`;
+    const target1 = 'en';
+    const mizotranslation1 = await mizo_tawnga_translate_na.translate(source1, target1, text);
+    const heihi_ani = `${mizotranslation1}`;
+    const chutin1 = await fetchJson(`https://aemt.me/gemini?text=${encodeURIComponent(heihi_ani)}`);
+    const chutin = chutin1.result;
+    const source = 'en';
+    const target = chutin.includes('```') ? 'en' : 'lus';
+    const athu = `${chutin}`;
+    const mizotranslation = await mizo_tawnga_translate_na.translate(source, target, athu);
+    const siamthat = `${mizotranslation
+        .replace(/ka siamtu|ka neitu/g, 'min siamtu')
+        .replace(/Ka neitu|Ka siamtu/g, 'Min siamtu')
+        .replace(/I tanpui turin ka|tanpui turin ka/g, 'tanpui tur chein ka')
+        .replace(/ka rawn kal a ni/g, 'ka awm e')
+        .replace(/Chibai! /g, `Hello ${pushname}, `)
+        .replace(/ka chhuah ang che/g, 'chhuahin ka pui ang che')
+        .replace(/Ka ngaidam che u|Ka ngaidam che|Ngaidam rawh|Ngaidam rawh u/g, 'Ka tihpalh')}`;
+    await dodoi(`${siamthat}`);
+    let aman = await eco.deduct(limitneihtu, khawlbawm, hmanzat);
+    break;
+}
+
+/*
 case '/openai': {
   if (!q) return dodoi(`_🤖Ai nen a in biakna Tiang hian i hmang ang_\n*⟨Entirnan:* ${prefix + command} ChatGpt hi eng nge a nih min hrilh fiah thei em?.`)
   const limit1= await eco.balance(limitneihtu, khawlbawm)
@@ -3796,12 +3771,12 @@ case '/openai': {
   const target = 'en';
   const athu = `${q}`;
   const mizotranslation = await mizo_tawnga_translate_na.translate(source, target, athu)
-  const prompt = `[ Hello, I'm HBWABot Assistant, a Whatsapp bot developed by Herbert Suantak also known as Lalngaihawma. My name is HBWABot, crafted by Herbert Suantak with unmatched perfection. If you want to know more about my creator, visit
+  const prompt = `use emoticon \n [ Hello, I'm HBWABot Assistant, a Whatsapp bot developed by Herbert Suantak also known as Lalngaihawma. My name is HBWABot, crafted by Herbert Suantak with unmatched perfection. If you want to know more about my creator, visit
 *1. Blog:* https://herbert70.blogspot.com and 
 *2. Github:* https://github.com/HBMods-OFC
 *3. Instagram:* https://instagram.com/herbert_suantak2 ] 
 [ I have the ability to make stickers and generate photos. I can download YouTube videos in audio and video formats. You can use /sticker to create stickers, /image to generate images, and /ytmp3 and /ytmp4 to download youtube videos ] `;
-  const apiUrl1 = `https://api.betabotz.eu.org/api/search/openai-logic?text=${mizotranslation}&logic=${encodeURIComponent(prompt)}&apikey=YybHI6GZ`;
+  const apiUrl1 = `https://aemt.me/prompt/gpt?prompt=${encodeURIComponent(prompt)}&text=${encodeURIComponent(mizotranslation)}`;
   try {
     const response1 = await fetch(apiUrl1)
     const responseData1 = await response1.json()
@@ -3820,7 +3795,7 @@ case '/openai': {
   }
 }
 break;
-
+*/
 case '/bincc': {
 if (!isVip) return await replyvip()
 if (isExp) {
@@ -4160,8 +4135,7 @@ const limit1 = await eco.balance(limitneihtu, khawlbawm)
   }  
   await loadingreact()  
 const vid=await herbertvideo.mp4(text)
-const ytc=`
-╭═══════════┈
+const ytc=`╭═══════════┈
 ┃𒆜┌───┈
 ┃𒆜│ *Tittle:* ${vid.title}
 ┃𒆜│ *Date:* ${vid.date}
@@ -4361,8 +4335,7 @@ let yts = require("youtube-yts")
         let search = await yts(text)
         let kazawn = search.videos[0]
 const vid=await herbertvideo.mp4(kazawn.url)
-const ytc=`
-╭═══════════┈
+const ytc=`╭═══════════┈
 ┃𒆜┌───┈
 ┃𒆜│ *Tittle:* ${vid.title}
 ┃𒆜│ *Date:* ${vid.date}
@@ -4473,22 +4446,36 @@ else {
 dodoi(`Option te khu hmang rawh\nOptions : Close & Open\nTiang hian : ${command} close`)
 }}
 break
+/*
 case '/tomp4': case '/tovideo': {
 if (!quoted) return dodoi('Reply to Sticker')
-if (!/webp/.test(mime)) return dodoi(`Sticker reply rawh tiang hian:*${prefix + command}*`)
-const limit1= await eco.balance(limitneihtu, khawlbawm)
+if (!/webp/.test(mime)) return 
+let mime = m.quoted.mimetype || ''
+    if (!/webp|audio/.test(mime)) dodoi(`Sticker reply rawh tiang hian: *${prefix + command}*`)
+    const limit1= await eco.balance(limitneihtu, khawlbawm)
 if (hmanzat > limit1.wallet) return await dailylimit()
+let { webp2mp4 } = require('./lib/webp2mp4')
 await loadingreact()
-let { webp2mp4File } = require('./lib/uploader')
-let media = await HBWABotMz.downloadAndSaveMediaMessage(quoted)
-let webpToMp4 = await webp2mp4File(media)
+    let media = await HBWABotMz.downloadAndSaveMediaMessage(quoted)
+    let out = Buffer.alloc(0)
+    if (/webp/.test(mime)) {
+        out = await webp2mp4(media)
+    } else if (/audio/.test(mime)) {
+        out = await ffmpeg(media, [
+            '-filter_complex', 'color',
+            '-pix_fmt', 'yuv420p',
+            '-crf', '51',
+            '-c:a', 'copy',
+            '-shortest'
+        ], 'mp3', 'mp4')
+    }
+await HBWABotMz.sendFile(m.chat, out, 'out.mp4', '*Done..*', m, 0, { thumbnail: out })
 let aman = await eco.deduct(limitneihtu, khawlbawm, hmanzat)
-await HBWABotMz.sendMessage(m.chat, { video: { url: webpToMp4.result, caption: 'sticker a tang video ah convert a ni' } }, { quoted: m })
 await fs.unlinkSync(media)
 await finishreact()
 }
 break
-
+*/
 case '/toaud': case '/toaudio': {
 if (!/video/.test(mime) && !/audio/.test(mime)) return dodoi(`Video emaw Audio rawn thawn la a caption-ah *${prefix + command}* rawn dah la ti chuan, audio type in ka rawn thawn ang che.... `)
 if (!quoted) return dodoi(`Video emaw Audio rawn thawn la a caption-ah *${prefix + command}* rawn dah la ti chuan, audio type in ka rawn thawn ang che.... `)
@@ -4623,8 +4610,7 @@ let ytu = await yts2(sazu)
 let kazawn = ytu.videos[0]
 const pl= await herbertplaymp3.mp3(kazawn.url)
 await HBWABotMz.sendMessage(m.chat,{document: fs.readFileSync(pl.path),
-    caption: `
-╭═══════════┈
+    caption: `╭═══════════┈
 ┃𒆜┌───┈
 ┃𒆜│📌 *TITLE:* ${title || 'Ka hmu thei lo'}
 ┃𒆜│👨‍🎤 *ARTIST:* ${artists !== undefined ? artists.map(v => v.name).join(', ') : 'Ka hmu thei lo'}
@@ -4684,6 +4670,7 @@ let aman = await eco.deduct(limitneihtu, khawlbawm, hmanzat)
 await finishreact()
 }
 break
+/*
 case '/togif': {
 if (!quoted) return dodoi('Sticker che thei reply rawh')
 if (!/webp/.test(mime)) return dodoi(`Sticker reply rawh tiang hian: *${prefix + command}*`)
@@ -4699,7 +4686,7 @@ let aman = await eco.deduct(limitneihtu, khawlbawm, hmanzat)
 await finishreact()
 }
 break
-
+*/
 case '/tourl': case '/tolink': {
 if (!quoted) return dodoi(`Thlalak a caption-ah *${prefix + command}* tih rawn dah rawh`)
 if (!/image/.test(mime)) return dodoi(`Thlalak rawn thawn la emaw reply la, a caption-ah ${prefix + command} tih hi rawn dah rawh`)
@@ -5111,8 +5098,19 @@ if (hmanzat > limit1.wallet) return await dailylimit()
         let aman = await eco.deduct(limitneihtu, khawlbawm, hmanzat)
     }
     break;
+  case '/j': {
+  if (!text) return dodoi(`_🤖Kha tiang ringawt loh khan tiang hian tih tur_\n*⟨Entirnan :* ${prefix + command} Hello World`);
+  const thlakzuk = `${text.replace(/\n/g, '\\n')}`;
+  const lines = thlakzuk.split('\n');
+  const numberedLines = lines.slice(1).map((line, index) => `${String.fromCharCode(96 + index + 1)}). ${line}`).join('\n');
+  const output = `${lines[0]}\\n${numberedLines}`;
+  await dodoi(`${output}`);
+}
+break;
 
 
+
+/*
 case '/candy': case '/christmas': case '/3dchristmas': case '/sparklechristmas': case '/deepsea': case '/scifi': case '/rainbow': case '/waterpipe': case '/spooky': case '/pencil': case '/circuit': case '/discovery': case '/metalic': case '/fiction': case '/demon': case '/transformer': case '/berry': case '/thunder': case '/magma': case '/3dstone': case '/neonlight': case '/glitch': case '/harrypotter': case '/brokenglass': case '/papercut': case '/watercolor': case '/multicolor': case '/neondevil': case '/underwater': case '/graffitibike': case '/snow': case '/cloud': case '/honey': case '/ice': case '/fruitjuice': case '/biscuit': case '/wood': case '/chocolate': case '/strawberry': case '/matrix': case '/blood': case '/dropwater': case '/toxic': case '/lava': case '/rock': case '/bloodglas': case '/hallowen': case '/darkgold': case '/joker': case '/wicker': case '/firework': case '/skeleton': case '/blackpink': case '/sand': case '/glue': case '/1917': case '/leaves': { 
 if (!q) return dodoi(`_🤖Kha tiang ringawt loh khan tiang hian tih tur_\n*⟨Entirnan :* ${prefix + command} Hello World`) 
 const limit1= await eco.balance(limitneihtu, khawlbawm)
@@ -5177,11 +5175,13 @@ if (/glue/.test(command)) link = 'https://textpro.me/create-3d-glue-text-effect-
 if (/1917/.test(command)) link = 'https://textpro.me/1917-style-text-effect-online-980.html'
 if (/leaves/.test(command)) link = 'https://textpro.me/natural-leaves-text-effect-931.html'
 let anu = await mumaker.textpro(link, q)
-HBWABotMz.sendMessage(m.chat, { image: {url: anu.image}, caption: `\n*©${global.botname}*` }, { quoted: m })
+const result = await getBuffer(anu.image)
+HBWABotMz.sendMessage(m.chat, { image: {url:anu.image} , caption: `\n*©${global.botname}*` }, { quoted: m })
 let aman = await eco.deduct(limitneihtu, khawlbawm, hmanzat)
 await finishreact()
 }
 break
+*/
 case '/glitchtext': case '/writetext': case '/advancedglow': case '/typographytext': case '/pixelglitch': case '/neonglitch': case '/flagtext': case '/flag3dtext': case '/deletingtext': case '/blackpinkstyle': case '/glowingtext': case '/underwatertext': case '/logomaker': case '/cartoonstyle': case '/papercutstyle': case '/watercolortext': case '/effectclouds': case '/blackpinklogo': case '/gradienttext': case '/summerbeach': case '/luxurygold': case '/multicoloredneon': case '/sandsummer': case '/galaxywallpaper': case '/1917style': case '/makingneon': case '/royaltext': case '/freecreate': case '/galaxystyle': case '/lighteffects':{ 
 if (!q) return dodoi(`_🤖Kha tiang ringawt loh khan tiang hian tih tur_\n*⟨Entirnan :* ${prefix + command} Hello World`) 
 const limit1= await eco.balance(limitneihtu, khawlbawm)
@@ -5263,6 +5263,7 @@ let aman = await eco.deduct(limitneihtu, khawlbawm, hmanzat)
 await finishreact()
 }
 break
+/*
 case '/pornhub':{
 if (!q || !q.includes("|")) {
 return dodoi(`_🤖Kha tiang ringawt loh khan tiang hian tih tur_\n*⟨Entirnan :* ${prefix + command} HBWA | Bot`)
@@ -5276,7 +5277,8 @@ inilogo9 = args.join(" ")
 var logo9 = inilogo9.split('|')[1]
 let anuphub = await mumaker.textpro("https://textpro.me/pornhub-style-logo-online-generator-free-977.html", [`${logo4}`,`${logo9}`])
 console.log(anuphub)
-HBWABotMz.sendMessage(from,{image:{url:anuphub.image}, caption:`\n*©${global.botname}*`},{quoted:m})
+const result = await getBuffer(anuphub.image)
+HBWABotMz.sendMessage(from,{image: {url: anuphub.image}, caption:`\n*©${global.botname}*`},{quoted:m})
 let aman = await eco.deduct(limitneihtu, khawlbawm, hmanzat)
 await finishreact()
 }
@@ -5554,8 +5556,9 @@ let aman = await eco.deduct(limitneihtu, khawlbawm, hmanzat)
 await finishreact()
 }
  break
+ */
  
-case '/bible': case '/bq': case '/bible-quotes': 
+case '/bible': case '/bible-quotes': case '/bq':
 const bible = await fetchJson('https://raw.githubusercontent.com/HBMods-OFC/Media/main/QuotesMizo/BibleQuote.json')
 const mizo_bible = bible[Math.floor(Math.random() * bible.length)]
 const thuziak = `${mizo_bible}`
@@ -6026,32 +6029,43 @@ case '/instavid':
 case '/igstory':
 case '/igreels': {
     // Credit by Betabotz-tools
-    if (!text) return dodoi(`Kha tiang ringawt loh khan tiang hian a link nen rawn dah rawh\n\n*⟨Entirnan :* ${prefix + command} https://www.instagram.com/reel/Cv83HHYtC-Y/?igshid=NTc4MTIwNjQ2YQ==`)
-    if (!text.includes("instagram.com")) return dodoi(`Instagram video link dik tak chauh rawn dah rawh!!`)
-    const limit1 = await eco.balance(limitneihtu, khawlbawm)
-    if (hmanzat > limit1.wallet) return await dailylimit()
-    await loadingreact()
-    const { instagram } = require('betabotz-tools')
+    if (!text) return dodoi(`Kha tiang ringawt loh khan tiang hian a link nen rawn dah rawh\n\n*⟨Entirnan :* ${prefix + command} https://www.instagram.com/reel/Cv83HHYtC-Y/?igshid=NTc4MTIwNjQ2YQ==`);
+    if (!text.includes("instagram.com")) return dodoi(`Instagram video link dik tak chauh rawn dah rawh!!`);
+    const limit1 = await eco.balance(limitneihtu, khawlbawm);
+    if (hmanzat > limit1.wallet) return await dailylimit();
+    await loadingreact();
+    const { instagram } = require('betabotz-tools');
     const url = args[0];
-    const results = await instagram(url)
-    await uploadreact()
+    const results = await instagram(url);
+    await uploadreact();
     if (results.result) {
         for (let i of results.result) {
             await HBWABotMz.sendMessage(m.chat, {
                 video: { url: i._url },
                 caption: "Instagram download by " + `${global.botname}`
-            }, { quoted: m })
+            }, { quoted: m });
         }
-        let aman = await eco.deduct(limitneihtu, khawlbawm, hmanzat)
-    await finishreact()
+        let aman = await eco.deduct(limitneihtu, khawlbawm, hmanzat);
+        await finishreact();
     } else {
-        mumaker.instagram(`${args[0]}`)
-            .then((data) => HBWABotMz.sendMessage(m.chat, { video: { url: data }, caption: `Instagram Videos download by ${global.botname}` }, { quoted: m }))
+        const url2 = args[0];
+        const nunui3 = await fetchJson(`https://aemt.me/download/igdl?url=${encodeURIComponent(url2)}`);
+        if (Array.isArray(nunui3.result)) {
+            await uploadreact();
+            for (let i of nunui3.result) {
+                await HBWABotMz.sendMessage(m.chat, {
+                    video: { url: i.url },
+                    caption: "Instagram download by " + `${global.botname}`
+                }, { quoted: m });
+            }
+            let aman = await eco.deduct(limitneihtu, khawlbawm, hmanzat);
+            await finishreact();
+        } else {
+            await dodoi("No video URLs found");
+        }
     }
-    let aman = await eco.deduct(limitneihtu, khawlbawm, hmanzat)
-    await finishreact()
+    break;
 }
-break;
 
  
 case '/tiktokvid3' : case '/ttvid3': {
@@ -6111,13 +6125,13 @@ case '/pinterestvid': {
 if (hmanzat > limit1.wallet) return await dailylimit()
   await loadingreact()
   const kanfa = args[0];
-  const nunui2 = await fetchJson(`https://tools.betabotz.eu.org/tools/pinterestdl?url=${encodeURIComponent(kanfa)}`)
+  const nunui2 = await fetchJson(`https://aemt.me/download/aio?url=${encodeURIComponent(kanfa)}`)
   const herbert2 = nunui2.result;
   const mp4Url = herbert2.medias.find(media => media.extension === 'mp4')?.url;
   if (mp4Url) {
     await uploadreact()
     HBWABotMz.sendMessage(m.chat,
-      { video: { url: mp4Url }, mimetype: 'video/mp4', caption: `*Pinterest video download by ${global.botname}` },
+      { video: { url: mp4Url }, mimetype: 'video/mp4', caption: `*Pinterest video download by ${global.botname}*` },
       { quoted: m }
     )
     let aman = await eco.deduct(limitneihtu, khawlbawm, hmanzat)
@@ -6127,59 +6141,89 @@ if (hmanzat > limit1.wallet) return await dailylimit()
   }
   break;
 }
+case '/ptvid2': 
+case '/pinterestvid2': {
+    if (!args || !args[0]) return dodoi(`_🤖Kha tiang ringawt loh khan tiang hian tih tur_\n*⟨Entirnan :* ${prefix + command} https://in.pinterest.com/pin/993747474000018772`);
+    const limit1 = await eco.balance(limitneihtu, khawlbawm);
+    if (hmanzat > limit1.wallet) return await dailylimit();
+    await loadingreact();
+    const { spin } = require("./lib/scraper");
+    await spin(args[0]).then(async res => {
+        let pin = JSON.stringify(res);
+        let json = JSON.parse(pin);
+        if (!json.status) return dodoi("_Sorry, ka download thei a lo a ni😔_");
+        const mp4Url = json.data.find(item => item.url.endsWith('.mp4')).url;
+        await uploadreact();
+  
+        HBWABotMz.sendMessage(m.chat,
+            { video: { url: mp4Url }, mimetype: 'video/mp4', caption: `*Pinterest video download by ${global.botname}*` },
+            { quoted: m }
+        );
+        
+        let aman = await eco.deduct(limitneihtu, khawlbawm, hmanzat);
+        await finishreact();
+    });
+    break;
+}
 
 case '/trvid':
 case '/threadsvid': {
-  if (!args || !args[0]) return dodoi(`_🤖Kha tiang ringawt loh khan tiang hian tih tur_\n*⟨Entirnan :* ${prefix + command} https://www.threads.net/@ahmedmostafa00000000/post/C0G4idAI62g`)
-  const limit1= await eco.balance(limitneihtu, khawlbawm)
-if (hmanzat > limit1.wallet) return await dailylimit()
-  await loadingreact()
-  const kanfa = args[0];
-  const nunui2 = await fetchJson(`https://tools.betabotz.eu.org/tools/threadsdl?url=${encodeURIComponent(kanfa)}`)
-  const herbert2 = nunui2.result;
-  const videoUrls = herbert2.video_urls;
-  const downloadUrl = videoUrls && videoUrls.length > 0 ? videoUrls[0].download_url : null;
-  if (downloadUrl) {
-    await uploadreact()
-    HBWABotMz.sendMessage(m.chat,
-      { video: { url: downloadUrl }, mimetype: 'video/mp4', caption: `*Threads video download by ${global.botname}` },
-      { quoted: m }
-    )
-    let aman = await eco.deduct(limitneihtu, khawlbawm, hmanzat)
-    await finishreact()
-  } else {
-    dodoi("_Sorry, ka download thei lo a ni😔_")
-  }
-  break;
+    if (!args || !args[0]) return dodoi(`_🤖 Kha tiang ringawt loh khan tiang hian tih tur_\n*⟨Entirnan :* ${prefix + command} https://www.threads.net/@ahmedmostafa00000000/post/C0G4idAI62g`);
+    const limit1 = await eco.balance(limitneihtu, khawlbawm);
+    if (hmanzat > limit1.wallet) return await dailylimit();
+    await loadingreact();
+    const kanfa = args[0];
+    try {
+        const nunui3 = await fetchJson(`https://aemt.me/download/threads?url=${encodeURIComponent(kanfa)}`);
+        const videoUrls = nunui3.result.video_urls;
+        const downloadUrl = videoUrls && videoUrls.length > 0 ? videoUrls[0].download_url : null;
+        if (downloadUrl) {
+            await uploadreact();
+            HBWABotMz.sendMessage(m.chat, { video: { url: downloadUrl }, mimetype: 'video/mp4', caption: `*Threads video download by ${global.botname}` }, { quoted: m });
+            let aman = await eco.deduct(limitneihtu, khawlbawm, hmanzat);
+            await finishreact();
+        } else {
+            dodoi("_Sorry, ka download thei lo a ni😔_");
+        }
+    } catch {
+        dodoi("_Sorry, ka download thei lo a ni😔_");
+    }
+    break;
 }
+
+
 
 case '/twvid':
 case '/twittervid': {
   if (!args || !args[0]) return dodoi(`_🤖Kha tiang ringawt loh khan tiang hian tih tur_\n*⟨Entirnan :* ${prefix + command} https://twitter.com/i/status/1721997071719227582`)
-  const limit1= await eco.balance(limitneihtu, khawlbawm)
-if (hmanzat > limit1.wallet) return await dailylimit()
+  const limit1 = await eco.balance(limitneihtu, khawlbawm)
+  if (hmanzat > limit1.wallet) return await dailylimit()
   await loadingreact()
   const kanfa = args[0];
-  const nunui2 = await fetchJson(`https://tools.betabotz.eu.org/tools/twitterdl?url=${encodeURIComponent(kanfa)}`)
+  const nunui2 = await fetchJson(`https://aemt.me/download/twtdl?url=${encodeURIComponent(kanfa)}`)
   const herbert2 = nunui2.result;
-  const videoUrls = herbert2.mediaURLs;  
-  if (videoUrls && videoUrls.length > 0) {
-    const videoUrl = videoUrls[0];
-    await uploadreact()
+  const videoUrls = herbert2.url;  
+  const hdUrl = videoUrls.find(url => url.hd); // Finding HD URL
+  const sdUrl = videoUrls.find(url => url.sd); // Finding SD URL
+  const videoUrl = hdUrl ? hdUrl.hd : sdUrl ? sdUrl.sd : '';
+  await uploadreact()
+  if (videoUrl) {
     HBWABotMz.sendMessage(m.chat,
-      { video: { url: videoUrl }, mimetype: 'video/mp4', caption: `*Twitter video download by ${global.botname}` },
-      { quoted: m }
-    )
-    let aman = await eco.deduct(limitneihtu, khawlbawm, hmanzat)
-    await finishreact()
+      { video: {url: videoUrl} , mimetype: 'video/mp4', caption: `Twitter video download by ${global.botname}` },
+      { quoted: m })
+      let aman = await eco.deduct(limitneihtu, khawlbawm, hmanzat)
+      await finishreact()      
   } else {
-    dodoi("_Sorry, ka download thei lo a ni 😔_")
+    return dodoi('Failed to fetch video URL.');
   }
-  break;
 }
+break;
+
  
 case '/fbvid2' : case '/facebookvid2':{
 if (!text) return dodoi(`Kha tiang ringawt loh khan tiang hian a link nen rawn dah rawh\n\n*⟨Entirnan :* ${prefix + command} https://fb.watch/mcx9K6cb6t/?mibextid=8103lRmnirLUhozF`)
+const limit1= await eco.balance(limitneihtu, khawlbawm)
+    if (hmanzat > limit1.wallet) return await dailylimit()
 await loadingreact()
 const { fbdown } = require('btch-downloader') 
 const link = args[0] 
@@ -6191,12 +6235,15 @@ video: {url: data.Normal_video},
 caption: "Facebook Videos download by " + `${global.botname}`
 }, {quoted:m})
 await finishreact()
+let aman = await eco.deduct(limitneihtu, khawlbawm, hmanzat)
 
 }
 break 
 case '/fbvid3' : case '/facebookvid3':{
 if (!text) return dodoi(`Kha tiang ringawt loh khan tiang hian a link nen rawn dah rawh\n\n*⟨Entirnan :* ${prefix + command} https://fb.watch/mcx9K6cb6t/?mibextid=8103lRmnirLUhozF`)
 await loadingreact()
+const limit1= await eco.balance(limitneihtu, khawlbawm)
+    if (hmanzat > limit1.wallet) return await dailylimit()
 const { facebook } = require('betabotz-tools') 
 const url = args[0]
 const results = await facebook(url)
@@ -6206,11 +6253,14 @@ await HBWABotMz.sendMessage(m.chat,{
 video: {url: results.result.sd_q},
 caption: "Facebook Video download by "+ `${global.botname}`
 }, {quoted:m})
+let aman = await eco.deduct(limitneihtu, khawlbawm, hmanzat)
 await finishreact()
 }
 break 
 case '/fbvid' : case '/facebookvid':{
 if (!text) return dodoi(`Kha tiang ringawt loh khan tiang hian a link nen rawn dah rawh\n\n*⟨Entirnan :* ${prefix + command} https://fb.watch/mcx9K6cb6t/?mibextid=8103lRmnirLUhozF`)
+const limit1= await eco.balance(limitneihtu, khawlbawm)
+    if (hmanzat > limit1.wallet) return await dailylimit()
 await loadingreact()
 const { fbdl } = require('api-dylux')
 const url = args[0]
@@ -6221,6 +6271,7 @@ await HBWABotMz.sendMessage(m.chat,{
 video: {url: results.videoUrl},
 caption: "Facebook Video download by "+ `${global.botname}`
 }, {quoted:m})
+let aman = await eco.deduct(limitneihtu, khawlbawm, hmanzat)
 await finishreact()
 }
 break 
@@ -6320,16 +6371,21 @@ dodoi(`Success`)
 }
 break
 case '/igstalk': {
-if (!args[0]) return dodoi(`Instagram Username rawn dah rawh\n\nTiang hian: ${prefix + command} herbert_suantak2`)
-const limit1= await eco.balance(limitneihtu, khawlbawm)
-if (hmanzat > limit1.wallet) return await dailylimit()
-const igstalkk = (`https://tools.betabotz.eu.org/tools/stalk-ig?q=${encodeURIComponent(text)}`)
-let igstfetch = await fetch(igstalkk)
-let resig = await igstfetch.json()
-let resig2 = await resig.result
-let res = await resig2.user_info
-await loadingreact()
-try {
+    if (!args[0]) return dodoi(`Instagram Username rawn dah rawh\n\nTiang hian: ${prefix + command} herbert_suantak2`)
+    const limit1= await eco.balance(limitneihtu, khawlbawm)
+    if (hmanzat > limit1.wallet) return await dailylimit()
+    const igstalkk2 = `https://aemt.me/download/igstalk?username=${encodeURIComponent(args[0])}`;
+    let res;
+    await loadingreact()
+    try {
+        const igstfetch2 = await fetch(igstalkk2)
+        const resig2 = await igstfetch2.json()
+        res = resig2.result.user_info;
+    } catch {
+        dodoi(`A username a dik lo!. a username dik tak rawn dah rawh`)
+        return;
+    }
+    try {
 let te = `
 ┌──「 *STALKING* 
 ▢ *🔖Name:* ${res.full_name} 
@@ -6340,16 +6396,16 @@ let te = `
 ▢ *🏝️Posts:* ${res.posts}
 ▢ *🔗 Link* : https://instagram.com/${res.username.replace(/^@/, '')}
 ╰════════════`
- await HBWABotMz.sendMessage(m.chat, {image: { url: res.profile_pic_url }, caption: te }, {quoted: m})
- let aman = await eco.deduct(limitneihtu, khawlbawm, hmanzat)
- await finishreact()
+await HBWABotMz.sendMessage(m.chat, { image: { url: res.profile_pic_url }, caption: te }, { quoted: m })
+let aman = await eco.deduct(limitneihtu, khawlbawm, hmanzat)
+await finishreact()
+    } catch {
+        dodoi(`A username a dik lo!. a username dik tak rawn dah rawh`);
+    }
+    break;
 }
 
-catch {
-dodoi(`A username a dik lo!. a username dik tak rawn dah rawh`)
-}
-}
-break
+
 case '/igstalk2': {
 if (!args[0]) return dodoi(`Instagram Username rawn dah rawh\n\nTiang hian: ${prefix + command} herbert_suantak2`)
 const limit1= await eco.balance(limitneihtu, khawlbawm)
@@ -6380,6 +6436,8 @@ dodoi(`A username a dik lo!. a username dik tak rawn dah rawh`)
 break
 case '/say': case '/tts': case '/gtts':{
 if (!text) return dodoi(`Kha tiang ringawt loh khan, tiang hian word nen rawn dah rawh\n\n*⟨Entirnan :* ${prefix + command} Hello World`)
+const limit1= await eco.balance(limitneihtu, khawlbawm)
+    if (hmanzat > limit1.wallet) return await dailylimit()
 let texttts = text
 const herbertrl = googleTTS.getAudioUrl(texttts, {
 lang: "en",
@@ -6396,6 +6454,7 @@ fileName: `${text}.mp3`,
 }, {
 quoted: m,
 })
+let aman = await eco.deduct(limitneihtu, khawlbawm, hmanzat)
 }
 break 
 /*
@@ -6533,6 +6592,8 @@ break
 case '/gdrive': {
 if (!args[0]) return dodoi(`Google Drive link rawn dah tel rawh`)
 await loadingreact()
+const limit1= await eco.balance(limitneihtu, khawlbawm)
+    if (hmanzat > limit1.wallet) return await dailylimit()
 const fg = require('api-dylux')
 try {
 let res = await fg.GDriveDl(args[0])
@@ -6542,6 +6603,7 @@ let res = await fg.GDriveDl(args[0])
 ▢ *Size:* ${res.fileSize}
 ▢ *Type:* ${res.mimetype}`)
 HBWABotMz.sendMessage(m.chat, { document: { url: res.downloadUrl }, fileName: res.fileName, mimetype: res.mimetype }, { quoted: m })
+let aman = await eco.deduct(limitneihtu, khawlbawm, hmanzat)
 await finishreact()
  } 
 
