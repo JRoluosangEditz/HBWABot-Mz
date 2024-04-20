@@ -279,7 +279,7 @@ const dodoi = async (teks) => {
         .replace(/He featurs hi hman i duh chuan 💎20 i neih a ngai!!./g, 'babawkza1')
         .replace(/Ai nen a in biakna Tiang hian i hmang ang/g, 'babawkza5')
         .replace(/Bot rawn hmang thar tur i nih chuan Limit tiin type rawh, ti chuan bot hman theihna tur 💎500 i dawng ang, emaw i thiante in thawn tir rawh/g, 'babawkza2')
-        .replace(/He features hi VIP 👑 member te leh bot owners tan chauha siam a ni, VIP 👑 member nih i duh ve chuan a hnuaia number ka dah hian va dil rawh/g, 'babawkza3')
+        .replace(/He features hi VIP 👑 memberte tan chauha siam a ni, VIP 👑 member nih i duh ve chuan a hnuaia number ka dah hian va dil rawh/g, 'babawkza3')
         .replace(/Kha tiang ringawt loh khan/g, 'babawkza4')}`;
 
     var bawng1 = 'lus';
@@ -293,7 +293,7 @@ const dodoi = async (teks) => {
         .replace(/babawkza1/g, 'You need to have 💎20 limit for using this feature')
         .replace(/babawkza5/g, 'Chat with Ai, this should be used')
         .replace(/babawkza2/g, 'Please send me *limit* and you can claim 500 limit for daily')
-        .replace(/babawkza3/g, 'This feature is made for only VIP members and the bot owner.\nIf you want to be a VIP Member, please contact as I put the number in the given below.\n')
+        .replace(/babawkza3/g, 'This feature is made for only VIP members.\nIf you want to become VIP member ask me how to become vip member using Ai feature\n')
         .replace(/babawkza4/g, 'Not only like that')}`;
     var bawng8 = await mizo_tawnga_translate_na.translate(bawng5, bawng6, bawng7);
     var bawng9 = `${bawng8}`;
@@ -635,7 +635,7 @@ result: Result,
 
 const { checkVipUser } = require('./lib/vipem')
 
-const ftcvip = await fetch("https://raw.githubusercontent.com/HBMods-OFC/Base/master/VIP/vip-pro.json")
+const ftcvip = await fetch("https://raw.githubusercontent.com/HBMods-OFC/Data/master/VIP/vip-pro.json")
 const vipmem = await ftcvip.json()
 const isVip = checkVipUser(m.sender, vipmem)
 const vipahmantur = moment.tz('Asia/Kolkata')
@@ -655,7 +655,7 @@ const replyvipexp = () => {
 
 async function DuhSak() {
   try {
-    const response = await axios.get('https://raw.githubusercontent.com/HBMods-OFC/Base/master/Coin&Limit/DuhSakBik.json')
+    const response = await axios.get('https://raw.githubusercontent.com/HBMods-OFC/Data/master/Coin&Limit/DuhSakBik.json')
     return response.data;
   } catch (error) {
     console.error('premium number laknaah error a awm:', error.message)
@@ -664,7 +664,7 @@ async function DuhSak() {
 }
 async function hmangsuh() {
   try {
-    const response = await axios.get('https://raw.githubusercontent.com/HBMods-OFC/Base/master/Blocklist.json')
+    const response = await axios.get('https://raw.githubusercontent.com/HBMods-OFC/Data/master/Blocklist.json')
     return response.data;
   } catch (error) {
     console.error('premium number laknaah error a awm:', error.message)
@@ -676,7 +676,7 @@ const phallo = block1.includes(m.sender)
 const aActiveEm = isVip ? '🟢 Active' : '🔴 Not Active';
 const duhsak1 = await DuhSak()
 const HerbertTheCreator1 = duhsak1.includes(m.sender)
-const Dmdftc = ('https://raw.githubusercontent.com/HBMods-OFC/Base/master/Coin&Limit/limit&coin.json')
+const Dmdftc = ('https://raw.githubusercontent.com/HBMods-OFC/Data/master/Coin&Limit/limit&coin.json')
 let Dmdftc2 = await fetch(Dmdftc)
 let Dmdresult = await Dmdftc2.json()
 const hmanzat = Dmdresult.hmanzat
@@ -696,7 +696,7 @@ const dailylimit = () => {
  dodoi(`He features hi VIP 👑 member te leh bot owners tan chauha siam a ni, VIP 👑 member nih i duh ve chuan a hnuaia number ka dah hian va dil rawh.\nhttps://wa.me/+918416093656\n`)
  }
  
-const loadingimg = ('https://raw.githubusercontent.com/HBMods-OFC/Base/master/HBWABot-Mz/LoadingImg.json')
+const loadingimg = ('https://raw.githubusercontent.com/HBMods-OFC/Data/master/HBWABot-Mz/LoadingImg.json')
 const loadingimg1 = await fetch(loadingimg)
 const loadingimg2 = await loadingimg1.json()
 const loadingimg3 = loadingimg2.url;
@@ -707,7 +707,9 @@ const mark = "0@s.whatsapp.net"
 let isQuestionActive = false
 let currentQuestion;
 let isQuizActive = false;
-
+const aipr = await fetch('https://gist.githubusercontent.com/HBMods-OFC/b64e13df2575db0ca63a540c8b231f2c/raw/4e9d0fb86734067b62ce5b5ff1625557dac1eb86/aiprompt.json')
+const aipr2 = await aipr.json()
+const aipr3 = aipr2.prompt;
 // Respon Cmd with media
 if (isMedia && m.msg.fileSha256 && (m.msg.fileSha256.toString('base64') in global.db.sticker)) {
 let hash = global.db.sticker[m.msg.fileSha256.toString('base64')]
@@ -794,7 +796,7 @@ case '/biblequiz':
         if (_biblequiz.hasOwnProperty(m.sender.split('@')[0])) {
             return dodoi(`Zawhna ila chhang zo lo 🤌`);
         }
-        let bbquiz = await fetchJson('https://raw.githubusercontent.com/HBMods-OFC/Base/master/quiz/biblequiz.json');
+        let bbquiz = await fetchJson('https://gist.githubusercontent.com/HBMods-OFC/b64e13df2575db0ca63a540c8b231f2c/raw/4e9d0fb86734067b62ce5b5ff1625557dac1eb86/biblequiz.json');
         let result = bbquiz[Math.floor(Math.random() * bbquiz.length)];
         let mult = "`Multiple Choice Questions`";
         let englolo = await HBWABotMz.sendMessage(m.chat, { text: `> ${mult}\n${result.zawhna}\nAns: ___________`, contextInfo:{"externalAdReply": {"showAdAttribution": true, "containsAutoReply": true, "title": `Mizo Bible Quiz`,"body": `Limit hlawh theihna`, "previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": fs.readFileSync(`./asset/image/MizoBibleQ.png`),"sourceUrl": ``}}}, { quoted: m });
@@ -814,7 +816,7 @@ case '/mizoquiz': {
     }
 
     try {
-        const kaurl = await fetchJson('https://raw.githubusercontent.com/HBMods-OFC/Media/main/Zawhna/mizoquiz.json')
+        const kaurl = await fetchJson('https://gist.githubusercontent.com/HBMods-OFC/b64e13df2575db0ca63a540c8b231f2c/raw/4e9d0fb86734067b62ce5b5ff1625557dac1eb86/mizoquiz.json')
         const random = kaurl[Math.floor(Math.random() * kaurl.length)];
 
         await HBWABotMz.sendText(m.chat, `Zawhnate hi one by one a chhan tur a ni a, chhanna hi Minute 2 ral hmaa chhan zo hman vek tur a ni!!`, m)
@@ -1398,7 +1400,7 @@ case '/cfhb': {
   HBWABotMz.sendMessage(from, { react: { text: "📖" , key: m.key }}) 
   const siamthatna = `${text.replace(' ', '')}`
   var gchb = await getBuffer(`https://telegra.ph/file/23ab1484bd96462dfac85.jpg`)
-  const apiUrl = `https://raw.githubusercontent.com/HBMods-OFC/Base/master/hla/KTP/${siamthatna}.json`;
+  const apiUrl = `https://raw.githubusercontent.com/HBMods-OFC/Data/master/hla/KTP/${siamthatna}.json`;
   try {
   const hlabuftc = await fetch(apiUrl)
   const hlabu = await hlabuftc.json()
@@ -1431,7 +1433,7 @@ case '/cfhb2': {
 HBWABotMz.sendMessage(from, { react: { text: "🎶" , key: m.key }}) 
   const siamthatna = `${text.replace(' ', '')}`
   var gchb = await getBuffer(`https://telegra.ph/file/23ab1484bd96462dfac85.jpg`)
-  const apiUrl = `https://raw.githubusercontent.com/HBMods-OFC/Base/master/hla/KTP/${siamthatna}.json`;
+  const apiUrl = `https://raw.githubusercontent.com/HBMods-OFC/Data/master/hla/KTP/${siamthatna}.json`;
   try {
   const hlabuftc = await fetch(apiUrl)
   const hlabu = await hlabuftc.json()
@@ -3645,16 +3647,12 @@ case '/openai': {
         .replace(/AILI|aili|Aili/g, '')
         .replace(/Lann/g, '')}`;
     const mizotranslation = await mizo_tawnga_translate_na.translate(source, target, athu);
-    const prompt = `[ “ Use emoticons in all your communication messages ”]
-[“I am ${global.botname} Ai created by Herbert Suantak”]
-[“HBWABot fullform Herbert WhatsApp Bot”] [“If you want to talk to my Creator, please follow him on Instagram, his Instagram id is https://instagram.com/Herbert_Suantak2 ”]
+    const prompt = `Use emoticons in all your communication messages
+I am ${global.botname} Ai created by Herbert Suantak
 
-I have various features, the most notable of which are :
-youtube video download command in mp3 and mp4 format is .ytmp3 and ytmp4 If you want to see the various video download commands I have, type .downloadmenu.
+HBWABot fullform Herbert WhatsApp Bot 
 
-I can easily convert a photo into a sticker, send me a photo with .s or .sticker in the caption and I can make it into a sticker for you.
-
-You can see all my features by typing .allmenu`;
+${aipr3}`;
     const apiUrl1 = `https://aemt.me/prompt/gpt?prompt=${encodeURIComponent(prompt)}&text=${encodeURIComponent(mizotranslation)}`;
     const response1 = await fetch(apiUrl1);
     const responseData1 = await response1.json();
@@ -3694,16 +3692,12 @@ case '/gpt':{
         .replace(/AILI|aili|Aili/g, '')
         .replace(/Lann/g, '')}`;
     const mizotranslation = await mizo_tawnga_translate_na.translate(source, target, athu);
-   const prompt = `Translate lus | [ “ Use emoticons in all your communication messages ”]
-[“I am ${global.botname} Ai created by Herbert Suantak”]
-[“HBWABot fullform Herbert WhatsApp Bot”] [“If you want to talk to him, please follow him on Instagram, his Instagram id is https://instagram.com/Herbert_Suantak2 ”]
+   const prompt = `Use emoticons in all your communication messages
+I am ${global.botname} Ai created by Herbert Suantak
 
-I have various features, the most notable of which are :
-youtube video download command in mp3 and mp4 format is .ytmp3 and ytmp4 If you want to see the various video download commands I have, type .downloadmenu.
+HBWABot fullform Herbert WhatsApp Bot 
 
-I can easily convert a photo into a sticker, send me a photo with .s or .sticker in the caption and I can make it into a sticker for you.
-
-You can see all my features by typing .allmenu`;
+${aipr3}`;
     const apiUrl1 = `https://aemt.me/prompt/gpt?prompt=${encodeURIComponent(prompt)}&text=${encodeURIComponent(mizotranslation)}`;
     const response1 = await fetch(apiUrl1);
     const responseData1 = await response1.json();
@@ -3803,7 +3797,7 @@ if (isExp) {
         return;
     }
 const namso = require('namso-cc-gen')
-const genarate = ('https://raw.githubusercontent.com/HBMods-OFC/Base/master/HBWABot-Mz/BinCC.json')
+const genarate = ('https://raw.githubusercontent.com/HBMods-OFC/Data/master/HBWABot-Mz/BinCC.json')
 let genarate2 = await fetch(genarate)
 let genarate3 = await genarate2.json()
 const generatebin = genarate3.genbin
@@ -3848,7 +3842,7 @@ return dodoi(`I number rawn dah hi digit 6 chiah chiah a ni tur a ni a,\n*⟨Ent
 const addxx = [`xxxxxxxxxx`]
 const BinCC = `${text}${addxx}`
 const namso = require('namso-cc-gen')
-const genarate = ('https://raw.githubusercontent.com/HBMods-OFC/Base/master/HBWABot-Mz/BinCC.json')
+const genarate = ('https://raw.githubusercontent.com/HBMods-OFC/Data/master/HBWABot-Mz/BinCC.json')
 let genarate2 = await fetch(genarate)
 let genarate3 = await genarate2.json()
 const generatebin = genarate3.genbin
@@ -4886,12 +4880,12 @@ dodoi('Error')
 }
 break
 case '/myid': {
-dodoi(`,
+await HBWABotMz.sendMessage(from, { text: `,
   {
     "name": "${pushname}",
     "id": "${m.sender}",
     "expired": "random"
-  }`)
+  }`}, { quoted: m })
 }
 break
 case '/s': case '/sticker': case '/stiker': case '/stickers': { 
@@ -6028,7 +6022,6 @@ case '/igvid':
 case '/instavid': 
 case '/igstory':
 case '/igreels': {
-    // Credit by Betabotz-tools
     if (!text) return dodoi(`Kha tiang ringawt loh khan tiang hian a link nen rawn dah rawh\n\n*⟨Entirnan :* ${prefix + command} https://www.instagram.com/reel/Cv83HHYtC-Y/?igshid=NTc4MTIwNjQ2YQ==`);
     if (!text.includes("instagram.com")) return dodoi(`Instagram video link dik tak chauh rawn dah rawh!!`);
     const limit1 = await eco.balance(limitneihtu, khawlbawm);
@@ -6992,7 +6985,7 @@ HBWABotMz.copyNForward(m.chat, msgs[budy.toLowerCase()], true)
 console.log(util.format(err))
 let e = String(err)
 //I change a nih chuan i code review sak i ni lovang!!..
-const h34 = ('https://raw.githubusercontent.com/HBMods-OFC/Base/master/HBWABot-Mz/Support.json')
+const h34 = ('https://raw.githubusercontent.com/HBMods-OFC/Data/master/HBWABot-Mz/Support.json')
 let b34 = await fetch(h34)
 let t34 = await b34.json()
 const kajoin = t34.support
