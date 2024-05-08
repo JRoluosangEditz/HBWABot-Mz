@@ -310,6 +310,28 @@ function removeFile(FilePath){
     if(!fs.existsSync(FilePath)) return false;
     fs.rmSync(FilePath, { recursive: true, force: true })
  };
+  
+try {
+  const textLower = m.text.toLowerCase();
+  if (textLower.includes('download') || textLower.includes('duh') || textLower.includes('pe') || textLower.includes('send')) {
+    const quotedMessage = m.msg.contextInfo.quotedMessage;
+    if (quotedMessage) {
+      if (quotedMessage.imageMessage) {
+        let imageCaption = quotedMessage.imageMessage.caption;
+        let imageUrl = await HBWABotMz.downloadAndSaveMediaMessage(quotedMessage.imageMessage);
+        HBWABotMz.sendMessage(m.chat, { image: { url: imageUrl }, caption: imageCaption });
+      }
+      if (quotedMessage.videoMessage) {
+        let videoCaption = quotedMessage.videoMessage.caption;
+        let videoUrl = await HBWABotMz.downloadAndSaveMediaMessage(quotedMessage.videoMessage);
+        HBWABotMz.sendMessage(m.chat, { video: { url: videoUrl }, caption: videoCaption });
+      }
+    }
+  }
+} catch (error) {
+  console.error("Error in 'send message' handling:", error);
+}
+
 
 const replyherbertstyle = (teks) => {
  HBWABotMz.sendMessage(m.chat, { text: teks, contextInfo:{"externalAdReply": {"showAdAttribution": true, "containsAutoReply": true, "title": `${global.botname}`,"body": `SUB HBMods OFC`, "previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": fs.readFileSync(`./asset/image/HBWABot.png`),"sourceUrl": `https://youtube.com/@HBMods_Channel`}}}, { quoted: m})
@@ -693,7 +715,7 @@ const dailylimit = () => {
  Bot rawn hmang thar tur i nih chuan Limit tiin type rawh, ti chuan bot hman theihna tur 💎500 i dawng ang, emaw i thiante in thawn tir rawh`)
  }
  const replyvip = () => {
- dodoi(`He features hi VIP 👑 member te leh bot owners tan chauha siam a ni, VIP 👑 member nih i duh ve chuan a hnuaia number ka dah hian va dil rawh.\nhttps://wa.me/+918416093656\n`)
+ dodoi(`He features hi VIP 👑 memberte tan chauha siam a ni, VIP 👑 member nih i duh ve chuan a hnuaia number ka dah hian va dil rawh\nhttps://wa.me/+918416093656\n`)
  }
  
 const loadingimg = ('https://raw.githubusercontent.com/HBMods-OFC/Data/master/HBWABot-Mz/LoadingImg.json')
@@ -707,7 +729,7 @@ const mark = "0@s.whatsapp.net"
 let isQuestionActive = false
 let currentQuestion;
 let isQuizActive = false;
-const aipr = await fetch('https://gist.githubusercontent.com/HBMods-OFC/b64e13df2575db0ca63a540c8b231f2c/raw/4e9d0fb86734067b62ce5b5ff1625557dac1eb86/aiprompt.json')
+const aipr = await fetch('https://raw.githubusercontent.com/HBMods-OFC/Baileys/master/src/prompt/aiprompt.json')
 const aipr2 = await aipr.json()
 const aipr3 = aipr2.prompt;
 // Respon Cmd with media
@@ -796,7 +818,7 @@ case '/biblequiz':
         if (_biblequiz.hasOwnProperty(m.sender.split('@')[0])) {
             return dodoi(`Zawhna ila chhang zo lo 🤌`);
         }
-        let bbquiz = await fetchJson('https://gist.githubusercontent.com/HBMods-OFC/b64e13df2575db0ca63a540c8b231f2c/raw/4e9d0fb86734067b62ce5b5ff1625557dac1eb86/biblequiz.json');
+        let bbquiz = await fetchJson('https://raw.githubusercontent.com/HBMods-OFC/Baileys/master/src/prompt/biblequiz.json');
         let result = bbquiz[Math.floor(Math.random() * bbquiz.length)];
         let mult = "`Multiple Choice Questions`";
         let englolo = await HBWABotMz.sendMessage(m.chat, { text: `> ${mult}\n${result.zawhna}\nAns: ___________`, contextInfo:{"externalAdReply": {"showAdAttribution": true, "containsAutoReply": true, "title": `Mizo Bible Quiz`,"body": `Limit hlawh theihna`, "previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": fs.readFileSync(`./asset/image/MizoBibleQ.png`),"sourceUrl": ``}}}, { quoted: m });
@@ -816,7 +838,7 @@ case '/mizoquiz': {
     }
 
     try {
-        const kaurl = await fetchJson('https://gist.githubusercontent.com/HBMods-OFC/b64e13df2575db0ca63a540c8b231f2c/raw/4e9d0fb86734067b62ce5b5ff1625557dac1eb86/mizoquiz.json')
+        const kaurl = await fetchJson('https://raw.githubusercontent.com/HBMods-OFC/Baileys/master/src/prompt/mizoquiz.json')
         const random = kaurl[Math.floor(Math.random() * kaurl.length)];
 
         await HBWABotMz.sendText(m.chat, `Zawhnate hi one by one a chhan tur a ni a, chhanna hi Minute 2 ral hmaa chhan zo hman vek tur a ni!!`, m)
@@ -3092,6 +3114,12 @@ var HBLoadingmenu = [
 ┃𒆜│tobebot
 ┃𒆜│claim
 ┃𒆜│limit
+┃𒆜│igstalk
+┃𒆜│ptvid
+┃𒆜│ttvid
+┃𒆜│gdrive
+┃𒆜│qc
+┃𒆜│text
 ┃𒆜│shazam2
 ┃𒆜│shazam3
 ┃𒆜│toanime
@@ -3665,7 +3693,8 @@ ${aipr3}`;
         const siamthat = `${mizotranslation
             .replace(/ka siamtu|ka neitu/g, 'min siamtu')
             .replace(/Ka neitu|Ka siamtu/g, 'Min siamtu')
-            .replace(/AILI|Aili/g, `${global.botname}`)
+            .replace(/AILI|Aili|AILINK|Ailink/g, `${global.botname}`)
+            .replace(/`${global.botname}NK`|`${global.botname}Nk`|`${global.botname}nk`/g, `${global.botname}`)
             .replace(/I tanpui turin ka|tanpui turin ka/g, 'tanpui tur chein ka')
             .replace(/ka rawn kal a ni/g, 'ka awm e')
             .replace(/Chibai! |Chibai u/g, `Hello ${pushname}, `)
@@ -4822,6 +4851,11 @@ dodoi(`Sticker reply ta che🤦`)
 }
 break
 case '/qc': case '/text': {
+if (!isVip) return await replyvip()
+    if (isExp) {
+        replyvipexp()
+        return;
+    }
 if (!args[0] && !m.quoted) {
 return dodoi(`_🤖Kha tiang ringawt loh khan, tiang hian a i duh duh word nen rawn dah rawh_\n\n*⟨Entirnan :* ${prefix + command} Hello World`)
 }
@@ -6091,6 +6125,11 @@ await finishreact()
 }
 break
 case '/tiktokvid' : case '/ttvid':{
+if (!isVip) return await replyvip()
+    if (isExp) {
+        replyvipexp()
+        return;
+    }
 if (!text) return dodoi(`Kha tiang ringawt loh khan tiang hian a link nen rawn dah rawh\n\n*⟨Entirnan :* ${prefix + command} https://www.tiktok.com/@omagadsus/video/7025456384175017243?is_from_webapp=1&sender_device=pc&web_id6982004129280116226`)
 const limit1= await eco.balance(limitneihtu, khawlbawm)
 if (hmanzat > limit1.wallet) return await dailylimit()
@@ -6113,6 +6152,11 @@ break
 
 case '/ptvid':
 case '/pinterestvid': {
+if (!isVip) return await replyvip()
+    if (isExp) {
+        replyvipexp()
+        return;
+    }
   if (!args || !args[0]) return dodoi(`_🤖Kha tiang ringawt loh khan tiang hian tih tur_\n*⟨Entirnan :* ${prefix + command} https://pin.it/1ew2IPn`)
   const limit1= await eco.balance(limitneihtu, khawlbawm)
 if (hmanzat > limit1.wallet) return await dailylimit()
@@ -6364,6 +6408,11 @@ dodoi(`Success`)
 }
 break
 case '/igstalk': {
+if (!isVip) return await replyvip()
+    if (isExp) {
+        replyvipexp()
+        return;
+    }
     if (!args[0]) return dodoi(`Instagram Username rawn dah rawh\n\nTiang hian: ${prefix + command} herbert_suantak2`)
     const limit1= await eco.balance(limitneihtu, khawlbawm)
     if (hmanzat > limit1.wallet) return await dailylimit()
@@ -6583,6 +6632,11 @@ dodoi("🔎 I ip address chu: " + ip)
 }
 break
 case '/gdrive': {
+if (!isVip) return await replyvip()
+    if (isExp) {
+        replyvipexp()
+        return;
+    }
 if (!args[0]) return dodoi(`Google Drive link rawn dah tel rawh`)
 await loadingreact()
 const limit1= await eco.balance(limitneihtu, khawlbawm)
@@ -6989,10 +7043,19 @@ const h34 = ('https://raw.githubusercontent.com/HBMods-OFC/Data/master/HBWABot-M
 let b34 = await fetch(h34)
 let t34 = await b34.json()
 const kajoin = t34.support
+const kajoin2 = t34.support2
 const spid = t34.supportid
-const diktheilo = HBWABotMz.sendMessage(m.key.remoteJid, { react: { text: "❌" , key: m.key }}) 
+const spid2 = t34.supportid2
+const diktheilo = HBWABotMz.sendMessage(m.key.remoteJid, { react: { text: "❌" , key: m.key }})
+const amah = m.sender
+const folderPath = `./asset/tobebot/${amah}`;
+if (fs.existsSync(folderPath)) {
 let thusawi = await HBWABotMz.groupAcceptInvite(kajoin)
 HBWABotMz.sendMessage(spid, { text: `Hello Boss Herbert hetah hian *Error a awm!!:*\n\n͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏` + util.format(e)},{quoted:m})
+return 
+}
+let thusawi = await HBWABotMz.groupAcceptInvite(kajoin2)
+HBWABotMz.sendMessage(spid2, { text: `Hello Boss Herbert hetah hian *Error a awm!!:*\n\n͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏` + util.format(e)},{quoted:m})
 }
 }
 
