@@ -219,7 +219,7 @@ herbertverifieduser.push(sender)
 fs.writeFileSync('./asset/database/user.json', JSON.stringify(herbertverifieduser, null, 2))
 }
 
-HBWABotMz.sendPresenceUpdate('available', from)
+HBWABotMz.sendPresenceUpdate('unavailable', from)
 
 // auto set bio
 if (db.settings[botNumber].autobio) {
